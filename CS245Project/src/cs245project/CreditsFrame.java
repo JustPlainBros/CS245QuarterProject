@@ -55,7 +55,7 @@ public class CreditsFrame extends javax.swing.JFrame {
         jLabel3.setText("Jose Guitierrez, BRONCO_ID");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel4.setText("Michael Muinos, BRONCO_ID");
+        jLabel4.setText("Michael Muinos, 009553206");
 
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class CreditsFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
