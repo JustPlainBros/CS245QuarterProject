@@ -13,12 +13,12 @@ import javax.swing.Timer;
  *
  * @author Kevsbud
  */
-public class IntroScreen extends javax.swing.JFrame {
+public class IntroScreenFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form IntroScreen
      */
-    public IntroScreen() {
+    public IntroScreenFrame() {
         initComponents();
         startTimer();
     }
@@ -27,7 +27,7 @@ public class IntroScreen extends javax.swing.JFrame {
         // Initialize timer
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               MainMenu mainMenu = new MainMenu();
+               MainMenuFrame mainMenu = new MainMenuFrame();
                mainMenu.setMainMenuAttributes();
                destroyIntroScreen();
             }
@@ -55,7 +55,6 @@ public class IntroScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));

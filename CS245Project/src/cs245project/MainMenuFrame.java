@@ -9,12 +9,12 @@ package cs245project;
  *
  * @author michael
  */
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenuFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    public MainMenuFrame() {
         initComponents();
     }
     
@@ -40,7 +40,6 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         creditsButton.setText("CREDITS");
@@ -122,19 +121,19 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
-        HangmanJFrame hangmanJFrame = new HangmanJFrame("Hangman");
+        HangmanFrame hangmanJFrame = new HangmanFrame("Hangman");
         hangmanJFrame.start();
         this.dispose();
     }//GEN-LAST:event_playButtonActionPerformed
 
     private void highScoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreButtonActionPerformed
-        HighScore highScore = new HighScore();
+        HighScoreFrame highScore = new HighScoreFrame();
         highScore.setHighScoreAttributes();
         this.dispose();
     }//GEN-LAST:event_highScoreButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
-        Credits credits = new Credits();
+        CreditsFrame credits = new CreditsFrame();
         credits.setCreditsAttributes();
         this.dispose();
     }//GEN-LAST:event_creditsButtonActionPerformed

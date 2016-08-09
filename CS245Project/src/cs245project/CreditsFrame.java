@@ -9,12 +9,12 @@ package cs245project;
  *
  * @author user
  */
-public class Credits extends javax.swing.JFrame {
+public class CreditsFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Credits
      */
-    public Credits() {
+    public CreditsFrame() {
         initComponents();
     }
     
@@ -123,7 +123,7 @@ public class Credits extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainMenu mainMenu = new MainMenu();
+        MainMenuFrame mainMenu = new MainMenuFrame();
         mainMenu.setMainMenuAttributes();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

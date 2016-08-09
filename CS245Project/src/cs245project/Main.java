@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Kevsbud
  */
-public class CS245Project {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -20,7 +20,7 @@ public class CS245Project {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                IntroScreen introScreen = new IntroScreen();
+                IntroScreenFrame introScreen = new IntroScreenFrame();
                 introScreen.setLocationRelativeTo(null);
                 introScreen.setVisible(true);
             }

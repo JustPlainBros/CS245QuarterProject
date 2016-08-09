@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: HangmanPanel.java
+ *      author: Michael Muinos
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/8/16
+ * 
+ *      purpose: The purpose of this class is to create the main
+ *      panel for the hangman game that will be added to the 
+ *      HangmanFrame.java class object. The panel uses an absolute layout
+ *      to set all the buttons, labels, and images within the panel.
+ *********************************************************/
 package cs245project;
 
 import java.awt.Color;
@@ -21,41 +29,50 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
-/**
- *
- * @author michael
- */
-public class HangmanJPanel extends javax.swing.JPanel {    
-    private final String[] wordList = {"abstract","cemetery","nurse","pharmacy","climbing"};
-    private final JLabel[] wordLabels;
-    private final boolean[] visibilityLabels;
-    private final String chosenWord;
+public class HangmanPanel extends javax.swing.JPanel {    
+    private final String[] wordList = {"abstract", "cemetery", "nurse", "pharmacy", "climbing"};
     
-    private int numberOfGuesses = 0;
-    private int totalScore = 100;
+    private JLabel[] wordLabels;
+    private boolean[] visibilityLabels;
+    
+    private String chosenWord; 
+    private int numberOfGuesses;
+    private int totalScore;
 
-    /**
-     * Creates new form HangmanJPanel
-     */
-    public HangmanJPanel() {
+    // constructor: HangmanPanel
+    // purpose: The purpose of this constructor is to create a JPanel object to be
+    // passed into the HangmanFrame object. It will initialize the components within
+    // the Jpanel layout, set the correct date, initialize the user's score, and
+    // choose a random word.
+    public HangmanPanel() {
         initComponents();
         //This next line exists to populate the date upon launch of game. If not here,
         //date populates as "jLabel2" for one runtime second then does date properly.
-        jLabel2.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
-        jLabel2.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
+        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+        dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         setDate();
+        
+        chosenWord = getRandomWord();
+        numberOfGuesses = 0;
+        totalScore = 100;
         
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
         
-        chosenWord = getRandomWord();
         wordLabels = new JLabel[chosenWord.length()];
         visibilityLabels = new boolean[chosenWord.length()];
     }
     
+    // method: getRandomWord
+    // purpose: The purpose of this method is to choose a random word
+    // from the given list of words we were given.
     private String getRandomWord() {
         return wordList[new Random().nextInt(wordList.length)];
     }
-
+    
+    // method: paintComponent
+    // purpose: The purpose of this method is to override the Jpanels paint method.
+    // It will create the lines for the hangman game programmatically, as well as creating
+    // the corresponding JLabels to be placed above the lines.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -63,7 +80,8 @@ public class HangmanJPanel extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
-        // Temporary solution, ill come up with some function to calculate the space correctly for all word lengths
+        // Temporary solution, ill come up with some function to 
+        // calculate the space correctly for all word lengths
         int firstXCoordinate = 0;
         int secondXCoordinate = 0;
         if(chosenWord.length() <= 5) {
@@ -74,7 +92,7 @@ public class HangmanJPanel extends javax.swing.JPanel {
             firstXCoordinate = 10;
             secondXCoordinate = 60;
         }
-        //testcomment
+
         for(int i = 0; i < chosenWord.length(); i++) {
             g2.drawLine(firstXCoordinate, 290, secondXCoordinate, 290);
             
@@ -89,13 +107,24 @@ public class HangmanJPanel extends javax.swing.JPanel {
         }        
     }
     
-    public final void setDate() {  
+    // method: setDate
+    // purpose: The purpose of this method is to start a timer event to display
+    // the correct date updated each second at the top right corner of the screen.
+    public void setDate() {  
         ActionListener date = (java.awt.event.ActionEvent e) -> {
-            jLabel2.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
+            dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         };
         new javax.swing.Timer(1000, date).start();
     }
     
+    // method: processButtonClick
+    // purpose: The following method will be called everytime a letter button has been
+    // clicked. First, it will determine if the letter the user clicked is a
+    // goodLetter (i.e. goodLetter = letter was part of word). Next, it will determine
+    // if the user has won, if they have, it will create a new result frame and dispose
+    // of the current one. If the user has not won, it will check if the letter was not
+    // a goodLetter, and it will increase the number of guesses, decrease the score, and change
+    // the image.
     private void processButtonClick(String letter) {
         boolean goodLetter = false;
         for(int i = 0; i < chosenWord.length(); i++) {
@@ -108,7 +137,7 @@ public class HangmanJPanel extends javax.swing.JPanel {
         
         // Check if they won or not
         if(isWinner()) {
-            HangmanResultJFrame winnerFrame = new HangmanResultJFrame("You won!", totalScore);
+            HangmanResultFrame winnerFrame = new HangmanResultFrame("You won!", totalScore);
             winnerFrame.setResultFrameAttributes();
             disposeCurrentFrame();
         }
@@ -127,13 +156,16 @@ public class HangmanJPanel extends javax.swing.JPanel {
             } else {
                 path += "image" + String.valueOf(numberOfGuesses) + ".png"; 
             }
-            System.out.println(path);
+
             ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(path));
             guillotinePicture.setIcon(imageIcon);
-            this.repaint();
         }
     }
     
+    // method: isWinner
+    // purpose: The purpose of this method is to determine if the user has won the game or not.
+    // It determines if the user has won by running through the visibilityLabels array, if
+    // all are true, then we know the user has guessed all the letters and has won.
     private boolean isWinner() {
         for (Boolean visibilityLabel : visibilityLabels) {
             if (!visibilityLabel) {
@@ -143,11 +175,15 @@ public class HangmanJPanel extends javax.swing.JPanel {
         return true;
     }
     
+    // method: startTimer
+    // purpose: This method will create a new timer object, create a new result frame,
+    // and dispose of the current frame after 3 seconds. 
+    // This method is called when the user has lost (i.e. guessed 6 times).
     private void startTimer() {
         // Initialize timer
         // 5 seconds play gif
         Timer timer = new Timer(3000, (ActionEvent e) -> {
-            HangmanResultJFrame loserFrame = new HangmanResultJFrame("You lost!", totalScore);
+            HangmanResultFrame loserFrame = new HangmanResultFrame("You lost!", totalScore);
             loserFrame.setResultFrameAttributes();
             disposeCurrentFrame();
         });
@@ -155,6 +191,9 @@ public class HangmanJPanel extends javax.swing.JPanel {
         timer.start();
     }
     
+    // method: disableAllButtons
+    // purpose: This method will make all buttons on the screen
+    // impossible to click.
     private void disableAllButtons() {
         aButton.setEnabled(false);
         bButton.setEnabled(false);
@@ -185,6 +224,9 @@ public class HangmanJPanel extends javax.swing.JPanel {
         skipButton.setEnabled(false);
     }
     
+    // method: disposeCurrentFrame
+    // purpose: This method will reference the panels parent (i.e. HangmanFrame.java)
+    // and dispose of the window.
     private void disposeCurrentFrame() {
         // Close JFrame that is containing this JPanel object
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -228,8 +270,8 @@ public class HangmanJPanel extends javax.swing.JPanel {
         xButton = new javax.swing.JButton();
         yButton = new javax.swing.JButton();
         zButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        hangmanLabel = new javax.swing.JLabel();
+        dateLabel = new javax.swing.JLabel();
         guillotinePicture = new javax.swing.JLabel();
         scoreLabel = new javax.swing.JLabel();
 
@@ -533,15 +575,15 @@ public class HangmanJPanel extends javax.swing.JPanel {
         add(zButton);
         zButton.setBounds(570, 340, 30, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
-        jLabel1.setSize(new java.awt.Dimension(150, 62));
-        add(jLabel1);
-        jLabel1.setBounds(6, 6, 150, 62);
+        hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
+        hangmanLabel.setSize(new java.awt.Dimension(150, 62));
+        add(hangmanLabel);
+        hangmanLabel.setBounds(6, 6, 150, 62);
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(440, 6, 160, 20);
+        dateLabel.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        dateLabel.setText("jLabel2");
+        add(dateLabel);
+        dateLabel.setBounds(440, 6, 160, 20);
 
         guillotinePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imageorigin.png"))); // NOI18N
         guillotinePicture.setText("jLabel3");
@@ -555,6 +597,11 @@ public class HangmanJPanel extends javax.swing.JPanel {
         scoreLabel.setBounds(470, 40, 150, 16);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * The ActionPerformed methods below have been auto-generated by NetBeans.
+     * They will pass in the corresponding letter to be processed by the
+     * processButtonClick method. After, the button will be disabled.
+     */
     private void aButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aButtonActionPerformed
         processButtonClick("a");
         aButton.setEnabled(false);
@@ -685,8 +732,11 @@ public class HangmanJPanel extends javax.swing.JPanel {
         zButton.setEnabled(false);
     }//GEN-LAST:event_zButtonActionPerformed
 
+    // method: skipButtonActionPerformed
+    // purpose: On click, this method will create a new result frame and dispose of the
+    // current frame.
     private void skipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipButtonActionPerformed
-        HangmanResultJFrame resultFrame = new HangmanResultJFrame("You skipped the game!", 0);
+        HangmanResultFrame resultFrame = new HangmanResultFrame("You skipped the game!", 0);
         resultFrame.setResultFrameAttributes();
         disposeCurrentFrame();
     }//GEN-LAST:event_skipButtonActionPerformed
@@ -697,16 +747,16 @@ public class HangmanJPanel extends javax.swing.JPanel {
     private javax.swing.JButton bButton;
     private javax.swing.JButton cButton;
     private javax.swing.JButton dButton;
+    private javax.swing.JLabel dateLabel;
     private javax.swing.JButton eButton;
     private javax.swing.JButton fButton;
     private javax.swing.JButton gButton;
     private javax.swing.JLabel guillotinePicture;
     private javax.swing.JButton hButton;
+    private javax.swing.JLabel hangmanLabel;
     private javax.swing.JButton iButton;
     private javax.swing.JButton jButton;
     private javax.swing.JButton jButton15;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton kButton;
     private javax.swing.JButton lButton;
     private javax.swing.JButton mButton;

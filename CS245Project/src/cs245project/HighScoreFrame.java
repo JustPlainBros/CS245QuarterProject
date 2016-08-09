@@ -9,12 +9,12 @@ package cs245project;
  *
  * @author user
  */
-public class HighScore extends javax.swing.JFrame {
+public class HighScoreFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form HighScore
      */
-    public HighScore() {
+    public HighScoreFrame() {
         initComponents();
     }
     
@@ -52,7 +52,6 @@ public class HighScore extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
@@ -199,7 +198,7 @@ public class HighScore extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        MainMenu mainMenu = new MainMenu();
+        MainMenuFrame mainMenu = new MainMenuFrame();
         mainMenu.setMainMenuAttributes();
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
