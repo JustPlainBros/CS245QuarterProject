@@ -46,9 +46,9 @@ public class HangmanPanel extends javax.swing.JPanel {
     // choose a random word.
     public HangmanPanel() {
         initComponents();
+        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         //This next line exists to populate the date upon launch of game. If not here,
         //date populates as "jLabel2" for one runtime second then does date properly.
-        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         setDate();
         
@@ -288,9 +288,10 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(skipButton);
-        skipButton.setBounds(530, 70, 75, 29);
+        skipButton.setBounds(530, 70, 51, 23);
 
         aButton.setText("a");
+        aButton.setBorder(null);
         aButton.setPreferredSize(new java.awt.Dimension(40, 40));
         aButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,8 +302,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         aButton.setBounds(10, 300, 30, 30);
 
         bButton.setText("b");
+        bButton.setBorder(null);
         bButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        bButton.setSize(new java.awt.Dimension(30, 30));
         bButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bButtonActionPerformed(evt);
@@ -312,8 +313,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         bButton.setBounds(50, 300, 30, 30);
 
         cButton.setText("c");
+        cButton.setBorder(null);
         cButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        cButton.setSize(new java.awt.Dimension(30, 30));
         cButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cButtonActionPerformed(evt);
@@ -323,8 +324,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         cButton.setBounds(100, 300, 30, 30);
 
         dButton.setText("d");
+        dButton.setBorder(null);
         dButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        dButton.setSize(new java.awt.Dimension(30, 30));
         dButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dButtonActionPerformed(evt);
@@ -334,8 +335,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         dButton.setBounds(140, 300, 30, 30);
 
         eButton.setText("e");
+        eButton.setBorder(null);
         eButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        eButton.setSize(new java.awt.Dimension(30, 30));
         eButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eButtonActionPerformed(evt);
@@ -345,8 +346,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         eButton.setBounds(190, 300, 30, 30);
 
         gButton.setText("g");
+        gButton.setBorder(null);
         gButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        gButton.setSize(new java.awt.Dimension(30, 30));
         gButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gButtonActionPerformed(evt);
@@ -356,8 +357,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         gButton.setBounds(290, 300, 30, 30);
 
         fButton.setText("f");
+        fButton.setBorder(null);
         fButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        fButton.setSize(new java.awt.Dimension(30, 30));
         fButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fButtonActionPerformed(evt);
@@ -367,8 +368,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         fButton.setBounds(240, 300, 30, 30);
 
         hButton.setText("h");
+        hButton.setBorder(null);
         hButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        hButton.setSize(new java.awt.Dimension(30, 30));
         hButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hButtonActionPerformed(evt);
@@ -378,8 +379,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         hButton.setBounds(340, 300, 30, 30);
 
         jButton.setText("j");
+        jButton.setBorder(null);
         jButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton.setSize(new java.awt.Dimension(30, 30));
         jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActionPerformed(evt);
@@ -389,8 +390,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         jButton.setBounds(430, 300, 30, 30);
 
         iButton.setText("i");
+        iButton.setBorder(null);
         iButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        iButton.setSize(new java.awt.Dimension(30, 30));
         iButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iButtonActionPerformed(evt);
@@ -400,8 +401,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         iButton.setBounds(380, 300, 30, 30);
 
         kButton.setText("k");
+        kButton.setBorder(null);
         kButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        kButton.setSize(new java.awt.Dimension(30, 30));
         kButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kButtonActionPerformed(evt);
@@ -411,8 +412,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         kButton.setBounds(470, 300, 30, 30);
 
         lButton.setText("l");
+        lButton.setBorder(null);
         lButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        lButton.setSize(new java.awt.Dimension(30, 30));
         lButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lButtonActionPerformed(evt);
@@ -422,8 +423,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         lButton.setBounds(520, 300, 30, 30);
 
         mButton.setText("m");
+        mButton.setBorder(null);
         mButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        mButton.setSize(new java.awt.Dimension(30, 30));
         mButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mButtonActionPerformed(evt);
@@ -433,8 +434,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         mButton.setBounds(560, 300, 30, 30);
 
         nButton.setText("n");
+        nButton.setBorder(null);
         nButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        nButton.setSize(new java.awt.Dimension(30, 30));
         nButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nButtonActionPerformed(evt);
@@ -444,8 +445,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         nButton.setBounds(10, 340, 30, 30);
 
         pButton.setText("p");
+        pButton.setBorder(null);
         pButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        pButton.setSize(new java.awt.Dimension(30, 30));
         pButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButtonActionPerformed(evt);
@@ -455,30 +456,30 @@ public class HangmanPanel extends javax.swing.JPanel {
         pButton.setBounds(100, 340, 30, 30);
 
         oButton.setText("o");
+        oButton.setBorder(null);
         oButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        oButton.setSize(new java.awt.Dimension(30, 30));
         oButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oButtonActionPerformed(evt);
             }
         });
         add(oButton);
-        oButton.setBounds(60, 340, 30, 30);
+        oButton.setBounds(50, 340, 30, 30);
 
         qButton.setText("q");
+        qButton.setBorder(null);
         qButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        qButton.setSize(new java.awt.Dimension(30, 30));
         qButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qButtonActionPerformed(evt);
             }
         });
         add(qButton);
-        qButton.setBounds(150, 340, 30, 30);
+        qButton.setBounds(140, 340, 30, 30);
 
         rButton.setText("r");
+        rButton.setBorder(null);
         rButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        rButton.setSize(new java.awt.Dimension(30, 30));
         rButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rButtonActionPerformed(evt);
@@ -488,8 +489,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         rButton.setBounds(190, 340, 30, 30);
 
         sButton.setText("s");
+        sButton.setBorder(null);
         sButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        sButton.setSize(new java.awt.Dimension(30, 30));
         sButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sButtonActionPerformed(evt);
@@ -499,8 +500,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         sButton.setBounds(240, 340, 30, 30);
 
         tButton.setText("t");
+        tButton.setBorder(null);
         tButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        tButton.setSize(new java.awt.Dimension(30, 30));
         tButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tButtonActionPerformed(evt);
@@ -510,19 +511,19 @@ public class HangmanPanel extends javax.swing.JPanel {
         tButton.setBounds(290, 340, 30, 30);
 
         uButton.setText("u");
+        uButton.setBorder(null);
         uButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        uButton.setSize(new java.awt.Dimension(30, 30));
         uButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uButtonActionPerformed(evt);
             }
         });
         add(uButton);
-        uButton.setBounds(330, 340, 30, 30);
+        uButton.setBounds(340, 340, 30, 30);
 
         vButton.setText("v");
+        vButton.setBorder(null);
         vButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        vButton.setSize(new java.awt.Dimension(30, 30));
         vButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vButtonActionPerformed(evt);
@@ -532,19 +533,19 @@ public class HangmanPanel extends javax.swing.JPanel {
         vButton.setBounds(380, 340, 30, 30);
 
         wButton.setText("w");
+        wButton.setBorder(null);
         wButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        wButton.setSize(new java.awt.Dimension(30, 30));
         wButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wButtonActionPerformed(evt);
             }
         });
         add(wButton);
-        wButton.setBounds(420, 340, 30, 30);
+        wButton.setBounds(430, 340, 30, 30);
 
         xButton.setText("x");
+        xButton.setBorder(null);
         xButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        xButton.setSize(new java.awt.Dimension(30, 30));
         xButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xButtonActionPerformed(evt);
@@ -554,8 +555,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         xButton.setBounds(470, 340, 30, 30);
 
         yButton.setText("y");
+        yButton.setBorder(null);
         yButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        yButton.setSize(new java.awt.Dimension(30, 30));
         yButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yButtonActionPerformed(evt);
@@ -565,8 +566,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         yButton.setBounds(520, 340, 30, 30);
 
         zButton.setText("z");
+        zButton.setBorder(null);
         zButton.setPreferredSize(new java.awt.Dimension(40, 40));
-        zButton.setSize(new java.awt.Dimension(30, 30));
         zButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zButtonActionPerformed(evt);
@@ -576,7 +577,6 @@ public class HangmanPanel extends javax.swing.JPanel {
         zButton.setBounds(560, 340, 30, 30);
 
         hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
-        hangmanLabel.setSize(new java.awt.Dimension(150, 62));
         add(hangmanLabel);
         hangmanLabel.setBounds(6, 6, 150, 62);
 
@@ -588,13 +588,12 @@ public class HangmanPanel extends javax.swing.JPanel {
         guillotinePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/imageorigin.png"))); // NOI18N
         guillotinePicture.setText("jLabel3");
         guillotinePicture.setPreferredSize(new java.awt.Dimension(130, 236));
-        guillotinePicture.setSize(new java.awt.Dimension(130, 236));
         add(guillotinePicture);
         guillotinePicture.setBounds(230, 10, 130, 236);
 
         scoreLabel.setText("jLabel3");
         add(scoreLabel);
-        scoreLabel.setBounds(470, 40, 150, 16);
+        scoreLabel.setBounds(470, 40, 150, 14);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

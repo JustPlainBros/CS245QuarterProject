@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: IntroScreenFrame.java
+ *      author: Jose Gutierrez
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/8/16
+ * 
+ *      purpose: The purpose of this class is to create the splash
+ *      screen that displays for 3 seconds before the game application
+ *      first launches the menu. This Frame uses a timer to keep the 
+ *      screen displayed for 3 seconds.
+ *********************************************************/
 package cs245project;
 
 import java.awt.event.ActionEvent;
@@ -23,6 +31,9 @@ public class IntroScreenFrame extends javax.swing.JFrame {
         startTimer();
     }
     
+    // method: startTimer
+    // purpose: The purpose of this method is to start a timer event to 
+    // count to 3 seconds, afterwhich the frame is disposed and the menu is loaded.
     private void startTimer() {
         // Initialize timer
         Timer timer = new Timer(3000, new ActionListener() {
@@ -36,6 +47,9 @@ public class IntroScreenFrame extends javax.swing.JFrame {
         timer.start();
     }
     
+    // method: destroyIntroScreen
+    // purpose: The purpose of this method is to dispose the current instance of
+    // IntroScreenFrame.
     private void destroyIntroScreen() {
         this.dispose();
     }

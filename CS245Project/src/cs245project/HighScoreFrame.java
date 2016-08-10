@@ -14,7 +14,7 @@ package cs245project;
 
 /**
  *
- * @author user
+ * @author Erick Rivera
  */
 public class HighScoreFrame extends javax.swing.JFrame {
 
