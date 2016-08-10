@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: CreditsFrame.java
+ *      author: Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/9/16
+ * 
+ *      purpose: This class is the Credits frame in which the group members 
+ *      have their name and Bronco ID. The panel used the GUI drag and drop 
+ *      option in order to generate the labels.
+ *********************************************************/
 package cs245project;
 
-/**
- *
- * @author user
- */
+
 public class CreditsFrame extends javax.swing.JFrame {
 
     /**
@@ -17,7 +21,8 @@ public class CreditsFrame extends javax.swing.JFrame {
     public CreditsFrame() {
         initComponents();
     }
-    
+    //method:setCreditsAttribute 
+    //purpose: sets frame to the center of the screen and turns on visibilty
     public void setCreditsAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -49,7 +54,7 @@ public class CreditsFrame extends javax.swing.JFrame {
         jLabel1.setText("Credits");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel2.setText("Erick Rivera, BRONCO_ID");
+        jLabel2.setText("Erick Rivera, 009703473");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Jose Guitierrez, BRONCO_ID");
@@ -122,6 +127,8 @@ public class CreditsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //method: jButton1ActionPerformed 
+    //purpose: adds back button to main menu and then disposes frame
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainMenuFrame mainMenu = new MainMenuFrame();
         mainMenu.setMainMenuAttributes();

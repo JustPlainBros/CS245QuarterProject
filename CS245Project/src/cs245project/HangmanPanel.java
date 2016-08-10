@@ -430,7 +430,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(mButton);
-        mButton.setBounds(570, 300, 30, 30);
+        mButton.setBounds(560, 300, 30, 30);
 
         nButton.setText("n");
         nButton.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -573,7 +573,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(zButton);
-        zButton.setBounds(570, 340, 30, 30);
+        zButton.setBounds(560, 340, 30, 30);
 
         hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
         hangmanLabel.setSize(new java.awt.Dimension(150, 62));

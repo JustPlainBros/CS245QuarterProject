@@ -52,7 +52,9 @@ public class HangmanResultFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
         hangmanLabel.setText("Hangman");
+        hangmanLabel.setPreferredSize(new java.awt.Dimension(150, 62));
 
         mainMenuButton.setText("Back To Main Menu");
         mainMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,23 +75,24 @@ public class HangmanResultFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(hangmanLabel))
+                        .addComponent(hangmanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(216, 216, 216)
                         .addComponent(mainMenuButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(260, 260, 260)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resultLabel)
-                            .addComponent(scoreLabel))))
+                        .addComponent(scoreLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(resultLabel)))
                 .addGap(241, 241, 241))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(hangmanLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(hangmanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(resultLabel)
                 .addGap(39, 39, 39)
                 .addComponent(scoreLabel)

@@ -1,8 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: HighScoreFrame.java
+ *      author: Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/9/16
+ * 
+ *      purpose: This class is the HighScore frame in which the top 5 high
+ *      scores of the users are shown. The panel used the GUI drag and drop 
+ *      option in order to generate the placeholder text.
+ *********************************************************/
 package cs245project;
 
 /**
@@ -14,10 +21,15 @@ public class HighScoreFrame extends javax.swing.JFrame {
     /**
      * Creates new form HighScore
      */
+    //method:HighScoreFrame
+    //purpose:Constructor class that calls the generated code
     public HighScoreFrame() {
         initComponents();
     }
     
+    //method:setHighScoreAttributes
+    //purpose: sets the location of frame to middle of screen and sets
+    //the frame visibility on when opened.
     public void setHighScoreAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -197,6 +209,8 @@ public class HighScoreFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //method:backButtonActionPerformed
+    //purpose: returns to main menu when back button clicked
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         MainMenuFrame mainMenu = new MainMenuFrame();
         mainMenu.setMainMenuAttributes();
