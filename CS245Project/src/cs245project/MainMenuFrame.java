@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: IntroScreenFrame.java
+ *      author: Michael Muinos
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/8/16
+ * 
+ *      purpose: The purpose of this class is to create an
+ *      interactable main menu frame. 
+ *********************************************************/
 package cs245project;
 
 /**
@@ -18,6 +24,9 @@ public class MainMenuFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    // method: setMenuAttributes
+    // purpose: The purpose of this method is to help with centering of the frame
+    // upon it being loaded.
     public void setMainMenuAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -120,18 +129,27 @@ public class MainMenuFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     // method: playButtonActionPerformed
+    // purpose: The purpose of this method is to create an instance of the Hangman
+    // game when the button is pressed.
     private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
         HangmanFrame hangmanJFrame = new HangmanFrame("Hangman");
         hangmanJFrame.start();
         this.dispose();
     }//GEN-LAST:event_playButtonActionPerformed
 
+    // method: highScoreButtonActionPerformed
+    // purpose: The purpose of this method is to create a HighScore Frame isntance
+    // which displays the current highschores for the game.
     private void highScoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreButtonActionPerformed
         HighScoreFrame highScore = new HighScoreFrame();
         highScore.setHighScoreAttributes();
         this.dispose();
     }//GEN-LAST:event_highScoreButtonActionPerformed
 
+    // method: creditsButtonActionPerformed
+    // purpose: The purpose of this method is to create an instance of CreditsFrame
+    // which displays the game credits.
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
         CreditsFrame credits = new CreditsFrame();
         credits.setCreditsAttributes();

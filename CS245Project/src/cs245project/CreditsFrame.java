@@ -57,7 +57,7 @@ public class CreditsFrame extends javax.swing.JFrame {
         jLabel2.setText("Erick Rivera, 009703473");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel3.setText("Jose Guitierrez, BRONCO_ID");
+        jLabel3.setText("Jose Guitierrez, 009417096");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Michael Muinos, 009553206");

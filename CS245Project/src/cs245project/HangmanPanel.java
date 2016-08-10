@@ -46,9 +46,9 @@ public class HangmanPanel extends javax.swing.JPanel {
     // choose a random word.
     public HangmanPanel() {
         initComponents();
+        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         //This next line exists to populate the date upon launch of game. If not here,
         //date populates as "jLabel2" for one runtime second then does date properly.
-        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         setDate();
         
