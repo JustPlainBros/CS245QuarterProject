@@ -12,20 +12,26 @@
  ************************************************************/
 package cs245project;
 
-import java.awt.Font;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class HangmanResultFrame extends javax.swing.JFrame {
+    
+    private int totalScore;
 
     // constructor: HangmanresultFrame
     // purpose: the following constructor will create a new JFrame object.
     // Additionally, it passes in the result text and users score
     // from the hangman game and updates the labels.
-    public HangmanResultFrame(String labelText, int score) {
+    public HangmanResultFrame(int totalScore) {
         initComponents();
-        resultLabel.setText(labelText);
-        //resultLabel.setSize(100, 100);
-        resultLabel.setFont(new Font("Courier New", Font.ITALIC, 25));
-        scoreLabel.setText("Total Score: " + String.valueOf(score));
+        this.totalScore = totalScore;
+        
+        alertMessage.setVisible(false);
+        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
     }
     
     // method:setResultFrameAttributes
@@ -48,7 +54,10 @@ public class HangmanResultFrame extends javax.swing.JFrame {
         hangmanLabel = new javax.swing.JLabel();
         mainMenuButton = new javax.swing.JButton();
         scoreLabel = new javax.swing.JLabel();
-        resultLabel = new javax.swing.JLabel();
+        nameTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        alertMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +74,11 @@ public class HangmanResultFrame extends javax.swing.JFrame {
 
         scoreLabel.setText("jLabel1");
 
-        resultLabel.setText("jLabel1");
+        jLabel1.setText("Enter three letter name:");
+
+        jLabel2.setText("***HighScores will only display the top five scores!***");
+
+        alertMessage.setText("ENTER 3 LETTER NAME ABOVE!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,28 +90,45 @@ public class HangmanResultFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(hangmanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(mainMenuButton))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel2)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
+                        .addGap(157, 157, 157)
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
                         .addComponent(scoreLabel))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(resultLabel)))
-                .addGap(241, 241, 241))
+                        .addGap(123, 123, 123)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(alertMessage)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(mainMenuButton)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addComponent(hangmanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(resultLabel)
-                .addGap(39, 39, 39)
+                .addGap(51, 51, 51)
                 .addComponent(scoreLabel)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(alertMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mainMenuButton)
-                .addGap(156, 156, 156))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,16 +138,28 @@ public class HangmanResultFrame extends javax.swing.JFrame {
     // purpose: this method was auto-generated by NetBeans. It will create a new
     // main menu jframe and dispose of the current frame.
     private void mainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonActionPerformed
-        MainMenuFrame mainMenu = new MainMenuFrame();
-        mainMenu.setMainMenuAttributes();
-        this.dispose();
+        if(!nameTextField.getText().trim().isEmpty() && nameTextField.getText().trim().length() == 3) {
+            HighScoreSerializer serialize = new HighScoreSerializer(new HighScore(nameTextField.getText().trim(), totalScore));
+            serialize.serializeHighScore();
+            
+            MainMenuFrame mainMenu = new MainMenuFrame();
+            mainMenu.setMainMenuAttributes();
+            this.dispose();
+        } else {
+            Border border = BorderFactory.createLineBorder(Color.RED);
+            nameTextField.setBorder(border);
+            alertMessage.setVisible(true);
+        }
     }//GEN-LAST:event_mainMenuButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel alertMessage;
     private javax.swing.JLabel hangmanLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton mainMenuButton;
-    private javax.swing.JLabel resultLabel;
+    private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel scoreLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -137,7 +137,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         
         // Check if they won or not
         if(isWinner()) {
-            HangmanResultFrame winnerFrame = new HangmanResultFrame("You won!", totalScore);
+            HangmanResultFrame winnerFrame = new HangmanResultFrame(totalScore);
             winnerFrame.setResultFrameAttributes();
             disposeCurrentFrame();
         }
@@ -183,7 +183,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         // Initialize timer
         // 5 seconds play gif
         Timer timer = new Timer(3000, (ActionEvent e) -> {
-            HangmanResultFrame loserFrame = new HangmanResultFrame("You lost!", totalScore);
+            HangmanResultFrame loserFrame = new HangmanResultFrame(totalScore);
             loserFrame.setResultFrameAttributes();
             disposeCurrentFrame();
         });
@@ -735,7 +735,7 @@ public class HangmanPanel extends javax.swing.JPanel {
     // purpose: On click, this method will create a new result frame and dispose of the
     // current frame.
     private void skipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipButtonActionPerformed
-        HangmanResultFrame resultFrame = new HangmanResultFrame("You skipped the game!", 0);
+        HangmanResultFrame resultFrame = new HangmanResultFrame(0);
         resultFrame.setResultFrameAttributes();
         disposeCurrentFrame();
     }//GEN-LAST:event_skipButtonActionPerformed
