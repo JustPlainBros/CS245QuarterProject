@@ -137,8 +137,8 @@ public class HangmanPanel extends javax.swing.JPanel {
         
         // Check if they won or not
         if(isWinner()) {
-            HangmanResultFrame winnerFrame = new HangmanResultFrame(totalScore);
-            winnerFrame.setResultFrameAttributes();
+            ColorGameFrame colorGame = new ColorGameFrame("Color Game", totalScore);
+            colorGame.start();
             disposeCurrentFrame();
         }
         
@@ -176,15 +176,15 @@ public class HangmanPanel extends javax.swing.JPanel {
     }
     
     // method: startTimer
-    // purpose: This method will create a new timer object, create a new result frame,
+    // purpose: This method will create a new timer object, start a color game frame,
     // and dispose of the current frame after 3 seconds. 
     // This method is called when the user has lost (i.e. guessed 6 times).
     private void startTimer() {
         // Initialize timer
-        // 5 seconds play gif
+        // 3 seconds play gif
         Timer timer = new Timer(3000, (ActionEvent e) -> {
-            HangmanResultFrame loserFrame = new HangmanResultFrame(totalScore);
-            loserFrame.setResultFrameAttributes();
+            ColorGameFrame colorGame = new ColorGameFrame("Color Game", totalScore);
+            colorGame.start();
             disposeCurrentFrame();
         });
         timer.setRepeats(false);
@@ -732,11 +732,11 @@ public class HangmanPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_zButtonActionPerformed
 
     // method: skipButtonActionPerformed
-    // purpose: On click, this method will create a new result frame and dispose of the
+    // purpose: On click, this method will start the color game frame and dispose of the
     // current frame.
     private void skipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipButtonActionPerformed
-        HangmanResultFrame resultFrame = new HangmanResultFrame(0);
-        resultFrame.setResultFrameAttributes();
+        ColorGameFrame colorGame = new ColorGameFrame("Color Game", 0);
+        colorGame.start();
         disposeCurrentFrame();
     }//GEN-LAST:event_skipButtonActionPerformed
 
