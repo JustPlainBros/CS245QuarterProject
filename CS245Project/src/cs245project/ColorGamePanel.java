@@ -24,6 +24,7 @@ import javax.swing.ImageIcon;
 public class ColorGamePanel extends javax.swing.JPanel {
     private String[] colorName = {"Red", "Yellow", "Green", "Blue", "Pink"};
     private Color[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PINK};
+    private String[] forCheck = new String[5];
     private Random random = new Random();
     
     private int totalScore;
@@ -34,6 +35,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
     public ColorGamePanel(int totalScore) {
         initComponents();
         
+        //the next 35 lines of code are required to make images work properly.
         ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
         long seed = System.nanoTime();
         Collections.shuffle(used, new Random(seed));
@@ -44,30 +46,35 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballOne.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballOne.setRolloverEnabled(true);
         ballOne.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        forCheck[0] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
 
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
         hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
         ballTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballTwo.setRolloverEnabled(true);
         ballTwo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        forCheck[1] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
 
         name ="/resources/" +  used.remove(0).toLowerCase() + "ball.png";
         hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
         ballThree.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballThree.setRolloverEnabled(true);
         ballThree.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        forCheck[2] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
         
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
         hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
         ballFour.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballFour.setRolloverEnabled(true);
         ballFour.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        forCheck[3] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
         
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
         hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
         ballFive.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballFive.setRolloverEnabled(true);
         ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        forCheck[4] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
         
         this.totalScore = totalScore;
         dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
@@ -80,45 +87,6 @@ public class ColorGamePanel extends javax.swing.JPanel {
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
         colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
         colorNameLabel.setForeground(colors[random.nextInt(colors.length)]);
-    }
-    
-    public void colorButtons() {
-        ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
-        long seed = System.nanoTime();
-        Collections.shuffle(used, new Random(seed));
-        Collections.shuffle(used, new Random(seed));
-        
-        String name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
-        String hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
-        System.out.println(name);
-        System.out.println(hover);
-        ballOne.setIcon(new ImageIcon((name)));
-        ballOne.setRolloverEnabled(true);
-        ballOne.setRolloverIcon(new ImageIcon(hover));
-
-        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
-        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
-        ballTwo.setIcon(new ImageIcon((name)));
-        ballTwo.setRolloverEnabled(true);
-        ballTwo.setRolloverIcon(new ImageIcon((hover)));
-
-        name ="/resources/" +  used.remove(0).toLowerCase() + "ball.png";
-        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
-        ballThree.setIcon(new ImageIcon((name)));
-        ballThree.setRolloverEnabled(true);
-        ballThree.setRolloverIcon(new ImageIcon((hover)));
-        
-        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
-        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
-        ballFour.setIcon(new ImageIcon((name)));
-        ballFour.setRolloverEnabled(true);
-        ballFour.setRolloverIcon(new ImageIcon((hover)));
-        
-        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
-        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
-        ballFive.setIcon(new ImageIcon((name)));
-        ballFive.setRolloverEnabled(true);
-        ballFive.setRolloverIcon(new ImageIcon((hover)));
     }
     
     // method: setDate
@@ -298,23 +266,48 @@ public class ColorGamePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ballFiveActionPerformed
 
     private void redMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redMouseClicked
-
+        String temp = colorNameLabel.getText().toLowerCase();
+        System.out.println(temp + " " + forCheck[0]);
+        if(temp.equals(forCheck[0])) {
+            System.out.println("Working");
+            totalScore += 100;
+        } //else += 0
     }//GEN-LAST:event_redMouseClicked
 
     private void purpleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleMouseClicked
-
+        String temp = colorNameLabel.getText().toLowerCase();
+        System.out.println(temp + " " + forCheck[2]);
+        if(temp.equals(forCheck[2])) {
+            System.out.println("Working");
+            totalScore += 100;
+        } //else += 0
     }//GEN-LAST:event_purpleMouseClicked
 
     private void yellowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowMouseClicked
-
+        String temp = colorNameLabel.getText().toLowerCase();
+        System.out.println(temp + " " + forCheck[1]);
+        if(temp.equals(forCheck[1])) {
+            System.out.println("Working");
+            totalScore += 100;
+        } //else += 0
     }//GEN-LAST:event_yellowMouseClicked
 
     private void blueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueMouseClicked
-
+        String temp = colorNameLabel.getText().toLowerCase();
+        System.out.println(temp + " " + forCheck[3]);
+        if(temp.equals(forCheck[3])) {
+            System.out.println("Working");
+            totalScore += 100;
+        } //else += 0
     }//GEN-LAST:event_blueMouseClicked
 
     private void ballFiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseClicked
-
+        String temp = colorNameLabel.getText().toLowerCase();
+        System.out.println(temp + " " + forCheck[4]);
+        if(temp.equals(forCheck[4])) {
+            System.out.println("Working");
+            totalScore += 100;
+        } //else += 0
     }//GEN-LAST:event_ballFiveMouseClicked
 
 
