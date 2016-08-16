@@ -27,6 +27,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
     private String[] forCheck = new String[5];
     private String colorCheck = "";
     private Random random = new Random();
+    private int gameCount = 1;
     
     private int totalScore;
 
@@ -94,6 +95,11 @@ public class ColorGamePanel extends javax.swing.JPanel {
     }
     
     public void newColor() {
+        if(gameCount == 5) {
+            //code to pass in total score to highscores goes here
+            System.out.println("Testing, game over!");
+        }
+        gameCount++;
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
         colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
         int tempInt = random.nextInt(colors.length);
@@ -152,7 +158,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballOne.setRequestFocusEnabled(false);
         ballOne.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                redMouseClicked(evt);
+                ballOneMouseClicked(evt);
             }
         });
         ballOne.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +171,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballTwo.setRolloverEnabled(false);
         ballTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                yellowMouseClicked(evt);
+                ballTwoMouseClicked(evt);
             }
         });
         ballTwo.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +183,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballThree.setBorderPainted(false);
         ballThree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                purpleMouseClicked(evt);
+                ballThreeMouseClicked(evt);
             }
         });
         ballThree.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +195,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFour.setBorderPainted(false);
         ballFour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                blueMouseClicked(evt);
+                ballFourMouseClicked(evt);
             }
         });
         ballFour.addActionListener(new java.awt.event.ActionListener() {
@@ -278,42 +284,36 @@ public class ColorGamePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ballFiveActionPerformed
 
-    private void redMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redMouseClicked
-        System.out.println(colorCheck + " " + forCheck[0]);
-        if(colorCheck.toLowerCase().equals(forCheck[0])) {
-            System.out.println("Working");
+    private void ballOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballOneMouseClicked
+    if(colorCheck.toLowerCase().equals(forCheck[0])) {
             totalScore += 100;
         } //else += 0
         newColor();        
-    }//GEN-LAST:event_redMouseClicked
+    }//GEN-LAST:event_ballOneMouseClicked
 
-    private void purpleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleMouseClicked
+    private void ballThreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballThreeMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[2])) {
-            System.out.println("Working");
             totalScore += 100;
         } //else += 0
         newColor();       
-    }//GEN-LAST:event_purpleMouseClicked
+    }//GEN-LAST:event_ballThreeMouseClicked
 
-    private void yellowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowMouseClicked
+    private void ballTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballTwoMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[1])) {
-            System.out.println("Working");
             totalScore += 100;
         } //else += 0
         newColor();        
-    }//GEN-LAST:event_yellowMouseClicked
+    }//GEN-LAST:event_ballTwoMouseClicked
 
-    private void blueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueMouseClicked
+    private void ballFourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFourMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[3])) {
-            System.out.println("Working");
             totalScore += 100;
         } //else += 0
         newColor();
-    }//GEN-LAST:event_blueMouseClicked
+    }//GEN-LAST:event_ballFourMouseClicked
 
     private void ballFiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[4])) {
-            System.out.println("Working");
             totalScore += 100;
         } //else += 0
         newColor();
