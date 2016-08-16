@@ -25,6 +25,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
     private String[] colorName = {"Red", "Yellow", "Green", "Blue", "Pink"};
     private Color[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PINK};
     private String[] forCheck = new String[5];
+    private String colorCheck = "";
     private Random random = new Random();
     
     private int totalScore;
@@ -86,7 +87,19 @@ public class ColorGamePanel extends javax.swing.JPanel {
         
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
         colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
-        colorNameLabel.setForeground(colors[random.nextInt(colors.length)]);
+        int tempInt = random.nextInt(colors.length);
+        Color col = colors[tempInt];
+        colorCheck = colorName[tempInt];
+        colorNameLabel.setForeground(col);
+    }
+    
+    public void newColor() {
+        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
+        colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
+        int tempInt = random.nextInt(colors.length);
+        Color col = colors[tempInt];
+        colorCheck = colorName[tempInt];
+        colorNameLabel.setForeground(col);
     }
     
     // method: setDate
@@ -266,48 +279,44 @@ public class ColorGamePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ballFiveActionPerformed
 
     private void redMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redMouseClicked
-        String temp = colorNameLabel.getText().toLowerCase();
-        System.out.println(temp + " " + forCheck[0]);
-        if(temp.equals(forCheck[0])) {
+        System.out.println(colorCheck + " " + forCheck[0]);
+        if(colorCheck.toLowerCase().equals(forCheck[0])) {
             System.out.println("Working");
             totalScore += 100;
         } //else += 0
+        newColor();        
     }//GEN-LAST:event_redMouseClicked
 
     private void purpleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleMouseClicked
-        String temp = colorNameLabel.getText().toLowerCase();
-        System.out.println(temp + " " + forCheck[2]);
-        if(temp.equals(forCheck[2])) {
+    if(colorCheck.toLowerCase().equals(forCheck[2])) {
             System.out.println("Working");
             totalScore += 100;
         } //else += 0
+        newColor();       
     }//GEN-LAST:event_purpleMouseClicked
 
     private void yellowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowMouseClicked
-        String temp = colorNameLabel.getText().toLowerCase();
-        System.out.println(temp + " " + forCheck[1]);
-        if(temp.equals(forCheck[1])) {
+    if(colorCheck.toLowerCase().equals(forCheck[1])) {
             System.out.println("Working");
             totalScore += 100;
         } //else += 0
+        newColor();        
     }//GEN-LAST:event_yellowMouseClicked
 
     private void blueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueMouseClicked
-        String temp = colorNameLabel.getText().toLowerCase();
-        System.out.println(temp + " " + forCheck[3]);
-        if(temp.equals(forCheck[3])) {
+    if(colorCheck.toLowerCase().equals(forCheck[3])) {
             System.out.println("Working");
             totalScore += 100;
         } //else += 0
+        newColor();
     }//GEN-LAST:event_blueMouseClicked
 
     private void ballFiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseClicked
-        String temp = colorNameLabel.getText().toLowerCase();
-        System.out.println(temp + " " + forCheck[4]);
-        if(temp.equals(forCheck[4])) {
+    if(colorCheck.toLowerCase().equals(forCheck[4])) {
             System.out.println("Working");
             totalScore += 100;
         } //else += 0
+        newColor();
     }//GEN-LAST:event_ballFiveMouseClicked
 
 
