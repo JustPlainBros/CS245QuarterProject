@@ -6,14 +6,16 @@
 package cs245project;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
@@ -32,22 +34,55 @@ public class ColorGamePanel extends javax.swing.JPanel {
     public ColorGamePanel(int totalScore) {
         initComponents();
         this.totalScore = totalScore;
-        
         dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         //This next line exists to populate the date upon launch of game. If not here,
         //date populates as "jLabel2" for one runtime second then does date properly.
+        colorButtons();
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         setDate();
         
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
         colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
         colorNameLabel.setForeground(colors[random.nextInt(colors.length)]);
-        
-        displayImagesRandomly();
     }
     
-    private void displayImagesRandomly() {
+    public void colorButtons() {
+        ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
+        long seed = System.nanoTime();
+        Collections.shuffle(used, new Random(seed));
+        Collections.shuffle(used, new Random(seed));
         
+        String name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        String hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        System.out.println(name);
+        System.out.println(hover);
+        ballOne.setIcon(new ImageIcon((name)));
+        ballOne.setRolloverEnabled(true);
+        ballOne.setRolloverIcon(new ImageIcon(hover));
+
+        name = used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
+        ballTwo.setIcon(new ImageIcon((name)));
+        ballTwo.setRolloverEnabled(true);
+        ballTwo.setRolloverIcon(new ImageIcon((hover)));
+
+        name ="/resources/" +  used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
+        ballThree.setIcon(new ImageIcon((name)));
+        ballThree.setRolloverEnabled(true);
+        ballThree.setRolloverIcon(new ImageIcon((hover)));
+        
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        ballFour.setIcon(new ImageIcon((name)));
+        ballFour.setRolloverEnabled(true);
+        ballFour.setRolloverIcon(new ImageIcon((hover)));
+        
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        ballFive.setIcon(new ImageIcon((name)));
+        ballFive.setRolloverEnabled(true);
+        ballFive.setRolloverIcon(new ImageIcon((hover)));
     }
     
     // method: setDate
@@ -95,15 +130,12 @@ public class ColorGamePanel extends javax.swing.JPanel {
         add(colorNameLabel);
         colorNameLabel.setBounds(250, 50, 109, 16);
 
-        ballOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/redball.png"))); // NOI18N
         ballOne.setBorderPainted(false);
         ballOne.setContentAreaFilled(false);
+        ballOne.setRequestFocusEnabled(false);
         ballOne.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ballOneMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ballOneMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                redMouseClicked(evt);
             }
         });
         ballOne.addActionListener(new java.awt.event.ActionListener() {
@@ -112,14 +144,11 @@ public class ColorGamePanel extends javax.swing.JPanel {
             }
         });
 
-        ballTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/redball.png"))); // NOI18N
         ballTwo.setBorderPainted(false);
+        ballTwo.setRolloverEnabled(false);
         ballTwo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ballTwoMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ballTwoMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                yellowMouseClicked(evt);
             }
         });
         ballTwo.addActionListener(new java.awt.event.ActionListener() {
@@ -128,14 +157,10 @@ public class ColorGamePanel extends javax.swing.JPanel {
             }
         });
 
-        ballThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/redball.png"))); // NOI18N
         ballThree.setBorderPainted(false);
         ballThree.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ballThreeMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ballThreeMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                purpleMouseClicked(evt);
             }
         });
         ballThree.addActionListener(new java.awt.event.ActionListener() {
@@ -144,14 +169,10 @@ public class ColorGamePanel extends javax.swing.JPanel {
             }
         });
 
-        ballFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/redball.png"))); // NOI18N
         ballFour.setBorderPainted(false);
         ballFour.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ballFourMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ballFourMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                blueMouseClicked(evt);
             }
         });
         ballFour.addActionListener(new java.awt.event.ActionListener() {
@@ -160,14 +181,11 @@ public class ColorGamePanel extends javax.swing.JPanel {
             }
         });
 
-        ballFive.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/redball.png"))); // NOI18N
         ballFive.setBorderPainted(false);
+        ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/yellowballhover.png"))); // NOI18N
         ballFive.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ballFiveMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ballFiveMouseEntered(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ballFiveMouseClicked(evt);
             }
         });
         ballFive.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +209,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
                 .addComponent(ballOne)
                 .addGap(56, 56, 56)
                 .addComponent(ballTwo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                 .addComponent(ballThree)
                 .addGap(55, 55, 55))
         );
@@ -216,7 +234,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
                     .addGroup(innerJPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(ballFive)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         add(innerJPanel);
@@ -243,45 +261,25 @@ public class ColorGamePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ballFiveActionPerformed
 
-    private void ballOneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballOneMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballOneMouseEntered
+    private void redMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redMouseClicked
 
-    private void ballTwoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballTwoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballTwoMouseEntered
+    }//GEN-LAST:event_redMouseClicked
 
-    private void ballOneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballOneMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballOneMouseExited
+    private void purpleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleMouseClicked
 
-    private void ballTwoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballTwoMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballTwoMouseExited
+    }//GEN-LAST:event_purpleMouseClicked
 
-    private void ballThreeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballThreeMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballThreeMouseEntered
+    private void yellowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowMouseClicked
 
-    private void ballThreeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballThreeMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballThreeMouseExited
+    }//GEN-LAST:event_yellowMouseClicked
 
-    private void ballFourMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFourMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFourMouseEntered
+    private void blueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueMouseClicked
 
-    private void ballFourMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFourMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFourMouseExited
+    }//GEN-LAST:event_blueMouseClicked
 
-    private void ballFiveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFiveMouseEntered
+    private void ballFiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseClicked
 
-    private void ballFiveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFiveMouseExited
+    }//GEN-LAST:event_ballFiveMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
