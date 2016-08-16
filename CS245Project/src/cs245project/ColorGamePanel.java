@@ -60,7 +60,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballOne.setRolloverEnabled(true);
         ballOne.setRolloverIcon(new ImageIcon(hover));
 
-        name = used.remove(0).toLowerCase() + "ball.png";
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
         hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
         ballTwo.setIcon(new ImageIcon((name)));
         ballTwo.setRolloverEnabled(true);
