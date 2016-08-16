@@ -33,11 +33,47 @@ public class ColorGamePanel extends javax.swing.JPanel {
      */
     public ColorGamePanel(int totalScore) {
         initComponents();
+        
+        ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
+        long seed = System.nanoTime();
+        Collections.shuffle(used, new Random(seed));
+        Collections.shuffle(used, new Random(seed));
+        
+        String name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        String hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        ballOne.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
+        ballOne.setRolloverEnabled(true);
+        ballOne.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
+        ballTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
+        ballTwo.setRolloverEnabled(true);
+        ballTwo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+
+        name ="/resources/" +  used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());        
+        ballThree.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
+        ballThree.setRolloverEnabled(true);
+        ballThree.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        ballFour.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
+        ballFour.setRolloverEnabled(true);
+        ballFour.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        
+        name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
+        hover = name.substring(0, name.length() - 4) + "hover" + name.substring(name.length() - 4, name.length());
+        ballFive.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
+        ballFive.setRolloverEnabled(true);
+        ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        
         this.totalScore = totalScore;
         dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         //This next line exists to populate the date upon launch of game. If not here,
         //date populates as "jLabel2" for one runtime second then does date properly.
-        colorButtons();
+        //colorButtons();
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
         setDate();
         
