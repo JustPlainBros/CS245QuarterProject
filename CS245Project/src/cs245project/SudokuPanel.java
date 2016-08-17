@@ -10,28 +10,36 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
  *
  * @author michael
  */
-public class SudokuPanel extends javax.swing.JPanel {
+public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
     private final int COLUMN_ROW_BOXES = 9;
     
-    private JTextField[][] textFields;
+    private JLabel[][] labels;
     private int[][] userFields;
     private int[][] answers;
     private int totalScore;
     
+    private boolean paintComponentCalled;
+    
     public SudokuPanel(int totalScore) {
         initComponents();
         this.totalScore = totalScore;
-        textFields = new JTextField[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
+        labels = new JLabel[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         userFields = new int[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         answers = new int[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         
@@ -42,8 +50,7 @@ public class SudokuPanel extends javax.swing.JPanel {
         //date populates as "jLabel2" for one runtime second then does date properly.
         //colorButtons();
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
-        setDate();
-       
+        setDate();       
     }
     
     private void fillCorrectAnswerFields() {
@@ -77,41 +84,47 @@ public class SudokuPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        
-        // creates the grid
-        int x = 160;
-        int y = 50;
-        
-        for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
-                g2.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0));
-                g2.drawRect(x, y, 30, 30);
-                
-                JTextField field = new JTextField("A");
-                this.add(field);
-                field.setBounds(x, y, 30, 30);
-                textFields[i][j] = field;
-                
-                x += 30;
+        if(!paintComponentCalled) {
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            
+            g2.setColor(Color.WHITE);
+            g2.fillRect(160, 50, 270, 270);
+            
+            // creates the grid
+            int x = 160;
+            int y = 50;
+            
+            g2.setColor(Color.BLACK);
+            
+            for(int i = 0; i < 9; i++) {
+                for(int j = 0; j < 9; j++) {
+                    g2.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0));
+                    g2.drawRect(x, y, 30, 30);
+
+                    JTextField field = new JTextField();
+                    field.setBounds(x + 4, y + 4, 20, 20);
+                    this.add(field);
+                    
+                    x += 30;
+                }
+                x = 160;
+                y += 30;
             }
-            x = 160;
-            y += 30;
+
+            //draws the darker lines
+            g2.setStroke(new BasicStroke(5));
+            g2.drawLine(250, 51, 250, 319);
+            g2.drawLine(340, 51, 340, 319);
+            g2.drawLine(161, 140, 429, 140);
+            g2.drawLine(161, 230, 429, 230);
+
+            g2.setStroke(new BasicStroke(3));
+            g2.drawRect(160, 50, 270, 270);
+
+            paintComponentCalled = true;
         }
-        
-        //draws the darker lines
-        g2.setStroke(new BasicStroke(5));
-        g2.drawLine(250, 51, 250, 319);
-        g2.drawLine(340, 51, 340, 319);
-        g2.drawLine(161, 140, 429, 140);
-        g2.drawLine(161, 230, 429, 230);
-        
-        g2.setStroke(new BasicStroke(3));
-        g2.drawRect(160, 50, 270, 270);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,4 +197,29 @@ public class SudokuPanel extends javax.swing.JPanel {
     private javax.swing.JButton endButton;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
