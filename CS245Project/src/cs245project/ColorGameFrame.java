@@ -37,9 +37,9 @@ public class ColorGameFrame extends JFrame {
     // purpose: force window to show in center, set frame size, set visible
     public void start() {
         frame.add(new ColorGamePanel(totalScore));
-        frame.pack();
         frame.setResizable(false);
         frame.setSize(600, 400);
+        frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addWindowListener(new WindowAdapter() {
