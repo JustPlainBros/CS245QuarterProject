@@ -1,8 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: ColorGamePanel.java
+ *      author: Michael Muinos, Jose Gutierrez, Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 2
+ *      date last modified: 8/16/16
+ * 
+ *      purpose: The purpose of this class is to create the main
+ *      panel for the color game that will be added to the 
+ *      ColorGameFrame.java class object. The panel uses an absolute layout
+ *      to set all the buttons, labels, and images within the panel.
+ *********************************************************/
 package cs245project;
 
 import java.awt.Color;
@@ -56,7 +64,10 @@ public class ColorGamePanel extends javax.swing.JPanel {
         colorCheck = colorName[tempInt];
         colorNameLabel.setForeground(col);
     }
-    
+ 
+    // method: newColor
+    // purpose: The purpose of this method is to keep track of the rounds for the
+    // game and to handle the logic that both checks the progress and updates the text label.
     public void newColor() {
         if(gameCount == 5) {
             //code to pass in total score to highscores goes here
@@ -76,6 +87,9 @@ public class ColorGamePanel extends javax.swing.JPanel {
         randomizeColors();
     }
     
+    // method: randomizeColors
+    // purpose: The purpose of this method is to both change what balls are what color
+    // and to populate structures to help in the game logic.
     public void randomizeColors() {
         //the next 35 lines of code are required to make images work properly.
         ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
@@ -172,22 +186,11 @@ public class ColorGamePanel extends javax.swing.JPanel {
                 ballOneMouseClicked(evt);
             }
         });
-        ballOne.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ballOneActionPerformed(evt);
-            }
-        });
 
         ballTwo.setBorderPainted(false);
-        ballTwo.setRolloverEnabled(false);
         ballTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballTwoMouseClicked(evt);
-            }
-        });
-        ballTwo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ballTwoActionPerformed(evt);
             }
         });
 
@@ -197,21 +200,11 @@ public class ColorGamePanel extends javax.swing.JPanel {
                 ballThreeMouseClicked(evt);
             }
         });
-        ballThree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ballThreeActionPerformed(evt);
-            }
-        });
 
         ballFour.setBorderPainted(false);
         ballFour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballFourMouseClicked(evt);
-            }
-        });
-        ballFour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ballFourActionPerformed(evt);
             }
         });
 
@@ -220,11 +213,6 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballFiveMouseClicked(evt);
-            }
-        });
-        ballFive.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ballFiveActionPerformed(evt);
             }
         });
 
@@ -275,26 +263,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
         innerJPanel.setBounds(6, 76, 585, 334);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ballOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ballOneActionPerformed
-        
-    }//GEN-LAST:event_ballOneActionPerformed
-
-    private void ballTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ballTwoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballTwoActionPerformed
-
-    private void ballThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ballThreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballThreeActionPerformed
-
-    private void ballFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ballFourActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFourActionPerformed
-
-    private void ballFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ballFiveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ballFiveActionPerformed
-
+    // method: ballOneMouseClicked
+    // purpose: The purpose of this method is to handle clicks on the button
     private void ballOneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballOneMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[0])) {
             totalScore += 100;
@@ -302,6 +272,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
         newColor();        
     }//GEN-LAST:event_ballOneMouseClicked
 
+    // method: ballThreeMouseClicked
+    // purpose: The purpose of this method is to handle clicks on the button
     private void ballThreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballThreeMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[2])) {
             totalScore += 100;
@@ -309,6 +281,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
         newColor();       
     }//GEN-LAST:event_ballThreeMouseClicked
 
+    // method: ballTwoMouseClicked
+    // purpose: The purpose of this method is to handle clicks on the button
     private void ballTwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballTwoMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[1])) {
             totalScore += 100;
@@ -316,6 +290,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
         newColor();        
     }//GEN-LAST:event_ballTwoMouseClicked
 
+    // method: ballFourMouseClicked
+    // purpose: The purpose of this method is to handle clicks on the button
     private void ballFourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFourMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[3])) {
             totalScore += 100;
@@ -323,6 +299,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
         newColor();
     }//GEN-LAST:event_ballFourMouseClicked
 
+    // method: ballFiveMouseClicked
+    // purpose: The purpose of this method is to handle clicks on the button
     private void ballFiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ballFiveMouseClicked
     if(colorCheck.toLowerCase().equals(forCheck[4])) {
             totalScore += 100;
