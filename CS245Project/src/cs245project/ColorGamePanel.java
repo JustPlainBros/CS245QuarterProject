@@ -39,6 +39,44 @@ public class ColorGamePanel extends javax.swing.JPanel {
     public ColorGamePanel(int totalScore) {
         initComponents();
         
+        randomizeColors();
+        
+        this.totalScore = totalScore;
+        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+        //This next line exists to populate the date upon launch of game. If not here,
+        //date populates as "jLabel2" for one runtime second then does date properly.
+        //colorButtons();
+        dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
+        setDate();
+        
+        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
+        colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
+        int tempInt = random.nextInt(colors.length);
+        Color col = colors[tempInt];
+        colorCheck = colorName[tempInt];
+        colorNameLabel.setForeground(col);
+    }
+    
+    public void newColor() {
+        if(gameCount == 5) {
+            //code to pass in total score to highscores goes here
+            ResultFrame frame = new ResultFrame(totalScore);
+            frame.setResultFrameAttributes();
+            JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
+            jframe.dispose();
+        }
+        gameCount++;
+        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
+        colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
+        int tempInt = random.nextInt(colors.length);
+        Color col = colors[tempInt];
+        colorCheck = colorName[tempInt];
+        colorNameLabel.setForeground(col);
+        
+        randomizeColors();
+    }
+    
+    public void randomizeColors() {
         //the next 35 lines of code are required to make images work properly.
         ArrayList<String> used = new ArrayList<>(Arrays.asList(colorName));
         long seed = System.nanoTime();
@@ -79,38 +117,6 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFive.setRolloverEnabled(true);
         ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
         forCheck[4] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
-        
-        this.totalScore = totalScore;
-        dateLabel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
-        //This next line exists to populate the date upon launch of game. If not here,
-        //date populates as "jLabel2" for one runtime second then does date properly.
-        //colorButtons();
-        dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
-        setDate();
-        
-        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
-        colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
-        int tempInt = random.nextInt(colors.length);
-        Color col = colors[tempInt];
-        colorCheck = colorName[tempInt];
-        colorNameLabel.setForeground(col);
-    }
-    
-    public void newColor() {
-        if(gameCount == 5) {
-            //code to pass in total score to highscores goes here
-            ResultFrame frame = new ResultFrame(totalScore);
-            frame.setResultFrameAttributes();
-            JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
-            jframe.dispose();
-        }
-        gameCount++;
-        scoreLabel.setText("Total Score: " + String.valueOf(totalScore));
-        colorNameLabel.setText(colorName[random.nextInt(colorName.length)]);
-        int tempInt = random.nextInt(colors.length);
-        Color col = colors[tempInt];
-        colorCheck = colorName[tempInt];
-        colorNameLabel.setForeground(col);
     }
     
     // method: setDate
