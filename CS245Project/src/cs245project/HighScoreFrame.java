@@ -12,8 +12,6 @@
  *********************************************************/
 package cs245project;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -32,12 +30,6 @@ public class HighScoreFrame extends javax.swing.JFrame {
     //purpose:Constructor class that calls the generated code
     public HighScoreFrame() {
         initComponents();
-        this.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-            }
-        });
         names = new JLabel[NUMBER_OF_HIGHSCORES];
         scores = new JLabel[NUMBER_OF_HIGHSCORES];
         

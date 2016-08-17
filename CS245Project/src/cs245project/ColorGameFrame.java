@@ -12,10 +12,7 @@
  *********************************************************/
 package cs245project;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
-import javax.swing.WindowConstants;
 
 /**
  *
@@ -42,12 +39,6 @@ public class ColorGameFrame extends JFrame {
         frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-            }
-        });
     }
     
 }

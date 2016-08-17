@@ -11,8 +11,6 @@
  ************************************************************/
 package cs245project;
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 public class HangmanFrame {
@@ -37,12 +35,6 @@ public class HangmanFrame {
         frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                    System.exit(0);
-            }
-        });
     }
     
 }
