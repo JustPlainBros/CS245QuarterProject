@@ -13,6 +13,8 @@
 package cs245project;
 
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
@@ -29,6 +31,12 @@ public class ResultFrame extends javax.swing.JFrame {
     // from the hangman game and updates the labels.
     public ResultFrame(int totalScore) {
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    System.exit(0);
+            }
+        });
         this.totalScore = totalScore;
         
         alertMessage.setVisible(false);

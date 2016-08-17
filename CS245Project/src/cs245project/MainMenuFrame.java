@@ -11,6 +11,9 @@
  *********************************************************/
 package cs245project;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author michael
@@ -22,6 +25,12 @@ public class MainMenuFrame extends javax.swing.JFrame {
      */
     public MainMenuFrame() {
         initComponents();
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                    System.exit(0);
+            }
+        });
     }
     
     // method: setMenuAttributes

@@ -288,7 +288,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(skipButton);
-        skipButton.setBounds(530, 70, 51, 23);
+        skipButton.setBounds(530, 70, 75, 29);
 
         aButton.setText("a");
         aButton.setBorder(null);
@@ -593,7 +593,7 @@ public class HangmanPanel extends javax.swing.JPanel {
 
         scoreLabel.setText("jLabel3");
         add(scoreLabel);
-        scoreLabel.setBounds(470, 40, 150, 14);
+        scoreLabel.setBounds(470, 40, 150, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
