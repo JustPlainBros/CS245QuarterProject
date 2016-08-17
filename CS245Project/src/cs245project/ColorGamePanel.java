@@ -71,8 +71,8 @@ public class ColorGamePanel extends javax.swing.JPanel {
     public void newColor() {
         if(gameCount == 5) {
             //code to pass in total score to highscores goes here
-            ResultFrame frame = new ResultFrame(totalScore);
-            frame.setResultFrameAttributes();
+            SudokuFrame frame = new SudokuFrame("Sudoku", totalScore);
+            frame.start();
             JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
             jframe.dispose();
         }
