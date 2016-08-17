@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
-public class HangmanResultFrame extends javax.swing.JFrame {
+public class ResultFrame extends javax.swing.JFrame {
     
     private int totalScore;
     private boolean isHighScore;
@@ -27,7 +27,7 @@ public class HangmanResultFrame extends javax.swing.JFrame {
     // purpose: the following constructor will create a new JFrame object.
     // Additionally, it passes in the result text and users score
     // from the hangman game and updates the labels.
-    public HangmanResultFrame(int totalScore) {
+    public ResultFrame(int totalScore) {
         initComponents();
         this.totalScore = totalScore;
         
@@ -50,6 +50,8 @@ public class HangmanResultFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    // method: isHighScore
+    // purpose: Determines if the user has a highscore or not (top 5)
     private boolean isHighScore() {
         if(!new File(HighScoreDeserializer.FILE_NAME).exists()) {
             return true;

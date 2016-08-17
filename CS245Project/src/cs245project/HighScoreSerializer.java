@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: CreditsFrame.java
+ *      author: Michael Muinos
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/14/16
+ * 
+ *      purpose: The purpose of this class is to serialize an array
+ *      list object containing all the top high scores in the games.
+ *********************************************************/
 package cs245project;
 
 import java.io.File;
@@ -26,11 +32,19 @@ public class HighScoreSerializer {
     
     private ArrayList<HighScore> highScoreList;
     
+    // constructor
+    // purpose: initialize new variable of the total score
+    // create new array list object to be serialized
     public HighScoreSerializer(HighScore highScore) {
         this.highScore = highScore;
         highScoreList = new ArrayList<>();
     }
     
+    // method: serializeHighScore
+    // purpose: This method will sort the arraylist of high scores
+    // and then reverse the order so the greatest are at the front.
+    // Then if the list is greater than 5, it removes the all high scores after index 4.
+    // Finally it writes the object to a file.
     public void serializeHighScore() {
         File file = new File(FILE_NAME);
         if(!file.exists()) {

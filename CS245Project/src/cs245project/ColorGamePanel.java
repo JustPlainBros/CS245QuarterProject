@@ -16,14 +16,16 @@ import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author michael
  */
 public class ColorGamePanel extends javax.swing.JPanel {
-    private String[] colorName = {"Red", "Yellow", "Green", "Blue", "Pink"};
-    private Color[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PINK};
+    private String[] colorName = {"Red", "Yellow", "Green", "Blue", "Purple"};
+    private Color[] colors = {Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE, Color.MAGENTA};
     private String[] forCheck = new String[5];
     private String colorCheck = "";
     private Random random = new Random();
@@ -97,7 +99,10 @@ public class ColorGamePanel extends javax.swing.JPanel {
     public void newColor() {
         if(gameCount == 5) {
             //code to pass in total score to highscores goes here
-            System.out.println("Testing, game over!");
+            ResultFrame frame = new ResultFrame(totalScore);
+            frame.setResultFrameAttributes();
+            JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
+            jframe.dispose();
         }
         gameCount++;
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore));

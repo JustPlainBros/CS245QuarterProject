@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: CreditsFrame.java
+ *      author: Michael Muinos
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 1
+ *      date last modified: 8/14/16
+ * 
+ *      purpose: The purpose of this class is to deserialize the array
+ *      list object that was created in HighScoreSerializer.java
+ *********************************************************/
 package cs245project;
 
 import java.io.FileInputStream;
@@ -20,6 +26,9 @@ import java.util.logging.Logger;
 public class HighScoreDeserializer {
     public static final String FILE_NAME = "highScores.ser";
     
+    // method: deserializeHighScoreList
+    // purpose: The purpose of this method is to deserialize the object stored in 
+    // highScores.ser file. It will grab the array list of high score objects.
     public static ArrayList<HighScore> deserializeHighScoreList() {
         ArrayList<HighScore> highScoreList = null;
         try {

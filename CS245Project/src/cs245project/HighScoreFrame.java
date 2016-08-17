@@ -1,6 +1,6 @@
 /*********************************************************
  *      file: HighScoreFrame.java
- *      author: Erick Rivera
+ *      author: Erick Rivera / Michael Muinos
  *      class: CS 245 - Programming Graphical User Interfaces
  * 
  *      assignment: Quarter Project, Checkpoint # 1
@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Erick Rivera
+ * @author Erick Rivera / Michael Muinos
  */
 public class HighScoreFrame extends javax.swing.JFrame {
     private final int NUMBER_OF_HIGHSCORES = 5;
@@ -45,6 +45,9 @@ public class HighScoreFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    // method: setHighScores
+    // purpose: this method will set the highscores in their appropriate labels. It will deserialize
+    // the file, then place them.
     private void setHighScores() {
         names[0] = name1; names[1] = name2; names[2] = name3; names[3] = name4; names[4] = name5;
         scores[0] = score1; scores[1] = score2; scores[2] = score3; scores[3] = score4; scores[4] = score5;
