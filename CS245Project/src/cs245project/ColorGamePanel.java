@@ -162,6 +162,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFour = new javax.swing.JButton();
         ballFive = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
         dateLabel.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N

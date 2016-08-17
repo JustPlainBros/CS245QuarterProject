@@ -32,9 +32,9 @@ public class HangmanFrame {
     // and initial position of the window
     public void start() {
         frame.add(new HangmanPanel());
-        frame.pack();
         frame.setResizable(false);
         frame.setSize(600, 400);
+        frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.addWindowListener(new WindowAdapter() {
