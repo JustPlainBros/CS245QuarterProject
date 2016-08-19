@@ -27,6 +27,9 @@ public class CreditsFrame extends javax.swing.JFrame {
     public void setCreditsAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
+        EscapeAction escape = new EscapeAction();
+        escape.register(getRootPane());
     }
 
     /**

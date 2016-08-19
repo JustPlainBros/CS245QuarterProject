@@ -48,6 +48,9 @@ public class ResultFrame extends javax.swing.JFrame {
     public void setResultFrameAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        
+        EscapeAction escape = new EscapeAction();
+        escape.register(getRootPane());
     }
     
     // method: isHighScore

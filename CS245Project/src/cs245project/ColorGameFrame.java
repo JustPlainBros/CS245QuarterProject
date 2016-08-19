@@ -39,6 +39,9 @@ public class ColorGameFrame extends JFrame {
         frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
+        EscapeAction escape = new EscapeAction();
+        escape.register(frame.getRootPane());
     }
     
 }

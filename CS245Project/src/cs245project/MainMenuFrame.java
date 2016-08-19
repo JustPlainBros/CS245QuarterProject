@@ -11,6 +11,8 @@
  *********************************************************/
 package cs245project;
 
+import java.awt.event.KeyEvent;
+
 
 /**
  *
@@ -31,6 +33,8 @@ public class MainMenuFrame extends javax.swing.JFrame {
     public void setMainMenuAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        EscapeAction escape = new EscapeAction();
+        escape.register(getRootPane());
     }
 
     /**

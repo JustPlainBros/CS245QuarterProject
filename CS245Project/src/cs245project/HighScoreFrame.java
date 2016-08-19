@@ -12,6 +12,8 @@
  *********************************************************/
 package cs245project;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -42,6 +44,8 @@ public class HighScoreFrame extends javax.swing.JFrame {
     public void setHighScoreAttributes() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        EscapeAction escape = new EscapeAction();
+        escape.register(getRootPane());
     }
     
     // method: setHighScores
@@ -147,6 +151,11 @@ public class HighScoreFrame extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
+        backButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                backButtonKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -242,6 +251,12 @@ public class HighScoreFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void backButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_backButtonKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_backButtonKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -263,4 +278,5 @@ public class HighScoreFrame extends javax.swing.JFrame {
     private javax.swing.JLabel score4;
     private javax.swing.JLabel score5;
     // End of variables declaration//GEN-END:variables
+
 }

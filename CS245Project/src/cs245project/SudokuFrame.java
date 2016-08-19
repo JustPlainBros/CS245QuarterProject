@@ -5,6 +5,8 @@
  */
 package cs245project;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 /**
@@ -28,5 +30,8 @@ public class SudokuFrame extends JFrame {
         frame.validate();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
+        EscapeAction escape = new EscapeAction();
+        escape.register(frame.getRootPane());
     }
 }

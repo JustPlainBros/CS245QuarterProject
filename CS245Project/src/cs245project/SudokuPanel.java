@@ -10,36 +10,42 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author michael
  */
-public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
+public class SudokuPanel extends javax.swing.JPanel {
     private final int COLUMN_ROW_BOXES = 9;
     
-    private JLabel[][] labels;
+    private ArrayList<IncorrectAnswerPair> incorrectAnswers;
+    
+    private JTextField[][] labels;
     private int[][] userFields;
     private int[][] answers;
+    
     private int totalScore;
+    private int sudokuPoints;
     
     private boolean paintComponentCalled;
     
     public SudokuPanel(int totalScore) {
         initComponents();
         this.totalScore = totalScore;
-        labels = new JLabel[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
+        sudokuPoints = 540;
+        
+        incorrectAnswers = new ArrayList<>();
+        
+        labels = new JTextField[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         userFields = new int[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         answers = new int[COLUMN_ROW_BOXES][COLUMN_ROW_BOXES];
         
@@ -50,7 +56,8 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
         //date populates as "jLabel2" for one runtime second then does date properly.
         //colorButtons();
         dateLabel.setText(new SimpleDateFormat("MMMM d, yyyy HH:mm:ss").format(new Date()));
-        setDate();       
+        setDate();
+        scoreLabel.setText("Total Score: " + String.valueOf(totalScore + sudokuPoints));
     }
     
     private void fillCorrectAnswerFields() {
@@ -68,6 +75,45 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
         answers[7][3] = 3; answers[7][4] = 4; answers[7][5] = 5; answers[7][6] = 2; answers[7][7] = 7; answers[7][8] = 6; 
         answers[8][0] = 3; answers[8][1] = 7; answers[8][2] = 4; answers[8][3] = 9; answers[8][4] = 6; answers[8][5] = 2; 
         answers[8][6] = 8; answers[8][7] = 1; answers[8][8] = 5;
+    }
+    
+    private void fillGivenSpaces() {
+        labels[0][0].setText(String.valueOf(8));
+        labels[0][3].setText(String.valueOf(4));
+        labels[0][5].setText(String.valueOf(6));
+        labels[0][8].setText(String.valueOf(7));
+        labels[1][6].setText(String.valueOf(4));
+        labels[2][1].setText(String.valueOf(1));
+        labels[2][6].setText(String.valueOf(6));
+        labels[2][7].setText(String.valueOf(5));
+        labels[3][0].setText(String.valueOf(5));
+        labels[3][2].setText(String.valueOf(9));
+        labels[3][4].setText(String.valueOf(3));
+        labels[3][6].setText(String.valueOf(7));
+        labels[3][7].setText(String.valueOf(8));
+        labels[4][4].setText(String.valueOf(7));
+        labels[5][1].setText(String.valueOf(4));
+        labels[5][2].setText(String.valueOf(8));
+        labels[5][4].setText(String.valueOf(2));
+        labels[5][6].setText(String.valueOf(1));
+        labels[5][8].setText(String.valueOf(3));
+        labels[6][1].setText(String.valueOf(5));
+        labels[6][2].setText(String.valueOf(2));
+        labels[6][7].setText(String.valueOf(9));
+        labels[7][2].setText(String.valueOf(1));
+        labels[8][0].setText(String.valueOf(3));
+        labels[8][3].setText(String.valueOf(9));
+        labels[8][5].setText(String.valueOf(2));
+        labels[8][8].setText(String.valueOf(5));
+        
+        for(int i = 0; i < COLUMN_ROW_BOXES; i++) {
+            for(int j = 0; j < COLUMN_ROW_BOXES; j++) {
+                if(!labels[i][j].getText().isEmpty()) {
+                    labels[i][j].setEditable(false);
+                    labels[i][j].setBackground(Color.PINK);
+                }
+            }
+        }
     }
     
     // method: setDate
@@ -105,6 +151,7 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
                     JTextField field = new JTextField();
                     field.setBounds(x + 4, y + 4, 20, 20);
                     this.add(field);
+                    labels[i][j] = field;
                     
                     x += 30;
                 }
@@ -123,7 +170,26 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
             g2.drawRect(160, 50, 270, 270);
 
             paintComponentCalled = true;
+            
+            fillGivenSpaces();
         }
+    }
+    
+    private boolean isNumeric(String str) {
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+    
+    private boolean containsIncorrectPair(int row, int col) {
+        for(int i = 0; i < incorrectAnswers.size(); i++) {
+            if(incorrectAnswers.get(i).getRowIndex() == row 
+                    && incorrectAnswers.get(i).getColIndex() == col) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -138,6 +204,7 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
         dateLabel = new javax.swing.JLabel();
         submitButton = new javax.swing.JButton();
         endButton = new javax.swing.JButton();
+        scoreLabel = new javax.swing.JLabel();
 
         dateLabel.setText("jLabel1");
 
@@ -155,27 +222,33 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
             }
         });
 
+        scoreLabel.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(submitButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
                 .addComponent(endButton)
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                    .addComponent(scoreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dateLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scoreLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 283, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitButton)
                     .addComponent(endButton))
@@ -184,42 +257,60 @@ public class SudokuPanel extends javax.swing.JPanel implements MouseListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void endButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endButtonActionPerformed
-        // TODO add your handling code here:
+        ResultFrame frame = new ResultFrame(totalScore);
+        frame.setResultFrameAttributes();
+        JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
+        jframe.dispose();
     }//GEN-LAST:event_endButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
+        boolean incorrectInput = false;
+        boolean allCorrectAnswers = true;
+        
+        for(int i = 0; i < labels.length; i++) {
+            for(int j = 0; j < labels[0].length; j++) {
+                String str = labels[i][j].getText();
+                if(str.isEmpty() || !isNumeric(str) || str.equalsIgnoreCase("0") || str.length() != 1) {
+                    labels[i][j].setBorder(BorderFactory.createLineBorder(Color.RED));
+                    incorrectInput = true;
+                } else {
+                    labels[i][j].setBorder(BorderFactory.createLineBorder(Color.GRAY));
+                    userFields[i][j] = Integer.parseInt(str);
+                }
+            }
+        }
+        
+        if(!incorrectInput) {
+            // check answers
+            for(int i = 0; i < COLUMN_ROW_BOXES; i++) {
+                for(int j = 0; j < COLUMN_ROW_BOXES; j++) {
+                    if(userFields[i][j] != answers[i][j]) {
+                        allCorrectAnswers = false;
+                        if(!containsIncorrectPair(i,j)) {
+                            sudokuPoints -= 10;
+                            incorrectAnswers.add(new IncorrectAnswerPair(i,j));
+                        }
+                    }
+                }
+            }
+            
+            scoreLabel.setText("Total Score:" + String.valueOf(totalScore + sudokuPoints));
+        
+            if(allCorrectAnswers) {
+                ResultFrame resultFrame = new ResultFrame(totalScore + sudokuPoints);
+                resultFrame.setResultFrameAttributes();
+                JFrame jframe = (JFrame) SwingUtilities.getWindowAncestor(this);
+                jframe.dispose();
+            }
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton endButton;
+    private javax.swing.JLabel scoreLabel;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
