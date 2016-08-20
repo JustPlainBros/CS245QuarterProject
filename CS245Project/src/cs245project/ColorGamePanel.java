@@ -102,6 +102,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballOne.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballOne.setRolloverEnabled(true);
         ballOne.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        ballOne.setToolTipText("Select one of these pokeballs as your answer");
         forCheck[0] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
 
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
@@ -109,6 +110,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballTwo.setRolloverEnabled(true);
         ballTwo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        ballTwo.setToolTipText("Select one of these pokeballs as your answer");
         forCheck[1] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
 
         name ="/resources/" +  used.remove(0).toLowerCase() + "ball.png";
@@ -116,6 +118,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballThree.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballThree.setRolloverEnabled(true);
         ballThree.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        ballThree.setToolTipText("Select one of these pokeballs as your answer");
         forCheck[2] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
         
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
@@ -123,6 +126,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFour.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballFour.setRolloverEnabled(true);
         ballFour.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        ballFour.setToolTipText("Select one of these pokeballs as your answer");
         forCheck[3] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
         
         name = "/resources/" + used.remove(0).toLowerCase() + "ball.png";
@@ -130,6 +134,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballFive.setIcon(new javax.swing.ImageIcon(getClass().getResource(name)));
         ballFive.setRolloverEnabled(true);
         ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource(hover)));
+        ballFive.setToolTipText("Select one of these pokeballs as your answer");
         forCheck[4] = name.substring(name.indexOf("s/") + 2, name.indexOf("ball.png"));
     }
     

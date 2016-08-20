@@ -283,6 +283,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         setLayout(null);
 
         skipButton.setText("Skip");
+        skipButton.setToolTipText("Skip to the color game");
         skipButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 skipButtonActionPerformed(evt);
@@ -294,6 +295,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         aButton.setText("a");
         aButton.setBorder(null);
         aButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        aButton.setToolTipText("Click this button to submit A as an answer.");
         aButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aButtonActionPerformed(evt);
@@ -305,6 +307,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         bButton.setText("b");
         bButton.setBorder(null);
         bButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        bButton.setToolTipText("Click this button to submit B as an answer.");
         bButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bButtonActionPerformed(evt);
@@ -316,6 +319,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         cButton.setText("c");
         cButton.setBorder(null);
         cButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        cButton.setToolTipText("Click this button to submit C as an answer.");
         cButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cButtonActionPerformed(evt);
@@ -327,6 +331,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         dButton.setText("d");
         dButton.setBorder(null);
         dButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        dButton.setToolTipText("Click this button to submit D as an answer.");
         dButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dButtonActionPerformed(evt);
@@ -338,6 +343,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         eButton.setText("e");
         eButton.setBorder(null);
         eButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        eButton.setToolTipText("Click this button to submit E as an answer.");
         eButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eButtonActionPerformed(evt);
@@ -349,6 +355,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         gButton.setText("g");
         gButton.setBorder(null);
         gButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        gButton.setToolTipText("Click this button to submit G as an answer.");
         gButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gButtonActionPerformed(evt);
@@ -360,6 +367,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         fButton.setText("f");
         fButton.setBorder(null);
         fButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        fButton.setToolTipText("Click this button to submit F as an answer.");
         fButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fButtonActionPerformed(evt);
@@ -371,6 +379,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         hButton.setText("h");
         hButton.setBorder(null);
         hButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        hButton.setToolTipText("Click this button to submit H as an answer.");
         hButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hButtonActionPerformed(evt);
@@ -382,6 +391,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         jButton.setText("j");
         jButton.setBorder(null);
         jButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton.setToolTipText("Click this button to submit J as an answer.");
         jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonActionPerformed(evt);
@@ -393,6 +403,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         iButton.setText("i");
         iButton.setBorder(null);
         iButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        iButton.setToolTipText("Click this button to submit I as an answer.");
         iButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iButtonActionPerformed(evt);
@@ -404,6 +415,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         kButton.setText("k");
         kButton.setBorder(null);
         kButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        kButton.setToolTipText("Click this button to submit K as an answer.");
         kButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kButtonActionPerformed(evt);
@@ -415,6 +427,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         lButton.setText("l");
         lButton.setBorder(null);
         lButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        lButton.setToolTipText("Click this button to submit D as an answer.");
         lButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lButtonActionPerformed(evt);
@@ -426,6 +439,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         mButton.setText("m");
         mButton.setBorder(null);
         mButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        mButton.setToolTipText("Click this button to submit M as an answer.");
         mButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mButtonActionPerformed(evt);
@@ -437,6 +451,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         nButton.setText("n");
         nButton.setBorder(null);
         nButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        nButton.setToolTipText("Click this button to submit N as an answer.");
         nButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nButtonActionPerformed(evt);
@@ -448,6 +463,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         pButton.setText("p");
         pButton.setBorder(null);
         pButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        pButton.setToolTipText("Click this button to submit P as an answer.");
         pButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pButtonActionPerformed(evt);
@@ -459,6 +475,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         oButton.setText("o");
         oButton.setBorder(null);
         oButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        oButton.setToolTipText("Click this button to submit O as an answer.");
         oButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oButtonActionPerformed(evt);
@@ -470,6 +487,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         qButton.setText("q");
         qButton.setBorder(null);
         qButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        qButton.setToolTipText("Click this button to submit Q as an answer.");
         qButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 qButtonActionPerformed(evt);
@@ -481,6 +499,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         rButton.setText("r");
         rButton.setBorder(null);
         rButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        rButton.setToolTipText("Click this button to submit R as an answer.");
         rButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rButtonActionPerformed(evt);
@@ -492,6 +511,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         sButton.setText("s");
         sButton.setBorder(null);
         sButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        sButton.setToolTipText("Click this button to submit S as an answer.");
         sButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sButtonActionPerformed(evt);
@@ -503,6 +523,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         tButton.setText("t");
         tButton.setBorder(null);
         tButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        tButton.setToolTipText("Click this button to submit T as an answer.");
         tButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tButtonActionPerformed(evt);
@@ -514,6 +535,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         uButton.setText("u");
         uButton.setBorder(null);
         uButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        uButton.setToolTipText("Click this button to submit U as an answer.");
         uButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uButtonActionPerformed(evt);
@@ -525,6 +547,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         vButton.setText("v");
         vButton.setBorder(null);
         vButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        vButton.setToolTipText("Click this button to submit V as an answer.");
         vButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vButtonActionPerformed(evt);
@@ -536,6 +559,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         wButton.setText("w");
         wButton.setBorder(null);
         wButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        wButton.setToolTipText("Click this button to submit W as an answer.");
         wButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wButtonActionPerformed(evt);
@@ -547,6 +571,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         xButton.setText("x");
         xButton.setBorder(null);
         xButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        xButton.setToolTipText("Click this button to submit X as an answer.");
         xButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xButtonActionPerformed(evt);
@@ -558,6 +583,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         yButton.setText("y");
         yButton.setBorder(null);
         yButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        yButton.setToolTipText("Click this button to submit Y as an answer.");
         yButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yButtonActionPerformed(evt);
@@ -569,6 +595,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         zButton.setText("z");
         zButton.setBorder(null);
         zButton.setPreferredSize(new java.awt.Dimension(40, 40));
+        zButton.setToolTipText("Click this button to submit Z as an answer.");
         zButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zButtonActionPerformed(evt);

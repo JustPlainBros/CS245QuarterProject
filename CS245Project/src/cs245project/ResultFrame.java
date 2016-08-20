@@ -96,11 +96,13 @@ public class ResultFrame extends javax.swing.JFrame {
         hangmanLabel.setPreferredSize(new java.awt.Dimension(150, 62));
 
         endButton.setText("End");
+        endButton.setToolTipText("Gave Over! This button takes you to main page.");
         endButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 endButtonActionPerformed(evt);
             }
         });
+        add(endButton);
 
         scoreLabel.setText("jLabel1");
 

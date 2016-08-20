@@ -78,7 +78,7 @@
         <Component class="javax.swing.JButton" name="creditsButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="CREDITS"/>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor" postCode="creditsButton.setToolTipText(&quot;Takes you to the credits page&quot;);">
               <Dimension value="[100, 100]"/>
             </Property>
           </Properties>
@@ -89,7 +89,7 @@
         <Component class="javax.swing.JButton" name="highScoreButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="HIGHSCORES"/>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor" postCode="highScoreButton.setToolTipText(&quot;Takes you to the high score screen&quot;);">
               <Dimension value="[100, 100]"/>
             </Property>
           </Properties>
@@ -108,7 +108,7 @@
         <Component class="javax.swing.JButton" name="playButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="PLAY"/>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor" postCode="playButton.setToolTipText(&quot;Starts the series of games&quot;);">
               <Dimension value="[100, 100]"/>
             </Property>
           </Properties>

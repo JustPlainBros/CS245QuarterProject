@@ -67,11 +67,13 @@ public class CreditsFrame extends javax.swing.JFrame {
         jLabel4.setText("Michael Muinos, 009553206");
 
         jButton1.setText("Back");
+        jButton1.setToolTipText("Click this button to return to main page");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

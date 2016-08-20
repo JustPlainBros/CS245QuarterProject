@@ -58,6 +58,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
         creditsButton.setText("CREDITS");
         creditsButton.setSize(new java.awt.Dimension(100, 100));
+        creditsButton.setToolTipText("Takes you to the credits page");
         creditsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 creditsButtonActionPerformed(evt);
@@ -66,6 +67,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
         highScoreButton.setText("HIGHSCORES");
         highScoreButton.setSize(new java.awt.Dimension(100, 100));
+        highScoreButton.setToolTipText("Takes you to the high score screen");
         highScoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 highScoreButtonActionPerformed(evt);
@@ -77,6 +79,7 @@ public class MainMenuFrame extends javax.swing.JFrame {
 
         playButton.setText("PLAY");
         playButton.setSize(new java.awt.Dimension(100, 100));
+        playButton.setToolTipText("Starts the series of games");
         playButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playButtonActionPerformed(evt);

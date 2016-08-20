@@ -209,13 +209,16 @@ public class SudokuPanel extends javax.swing.JPanel {
         dateLabel.setText("jLabel1");
 
         submitButton.setText("Submit");
+        submitButton.setToolTipText("Submit your attempt to solve the game.");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
             }
         });
+        add(submitButton);
 
         endButton.setText("End");
+        endButton.setToolTipText("Skips game and views final score.");
         endButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 endButtonActionPerformed(evt);

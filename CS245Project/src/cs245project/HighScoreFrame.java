@@ -146,6 +146,7 @@ public class HighScoreFrame extends javax.swing.JFrame {
         score5.setText("00000");
 
         backButton.setText("Back");
+        backButton.setToolTipText("Click this button to go back to the main page");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);

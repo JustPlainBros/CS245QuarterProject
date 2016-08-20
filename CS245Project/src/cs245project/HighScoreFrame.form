@@ -259,7 +259,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="backButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Back"/>
+            <Property name="text" type="java.lang.String" value="Back" postCode="backButton.setToolTipText(&quot;Click this button to go back to the main page&quot;);"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
