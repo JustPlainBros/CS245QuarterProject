@@ -167,6 +167,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         ballThree = new javax.swing.JButton();
         ballFour = new javax.swing.JButton();
         ballFive = new javax.swing.JButton();
+        gameLogo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
@@ -178,7 +179,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
 
         scoreLabel.setText("jLabel3");
         add(scoreLabel);
-        scoreLabel.setBounds(20, 10, 150, 16);
+        scoreLabel.setBounds(20, 50, 150, 16);
 
         colorNameLabel.setBackground(new java.awt.Color(255, 255, 255));
         colorNameLabel.setText("jLabel1");
@@ -230,7 +231,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
             .addGroup(innerJPanelLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(ballFour)
-                .addGap(111, 111, 111)
+                .addGap(222, 222, 222)
                 .addComponent(ballFive)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(innerJPanelLayout.createSequentialGroup()
@@ -268,6 +269,10 @@ public class ColorGamePanel extends javax.swing.JPanel {
 
         add(innerJPanel);
         innerJPanel.setBounds(6, 76, 585, 334);
+
+        gameLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/PoképickLogo.png"))); // NOI18N
+        add(gameLogo);
+        gameLogo.setBounds(10, 10, 145, 37);
     }// </editor-fold>//GEN-END:initComponents
 
     // method: ballOneMouseClicked
@@ -324,6 +329,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
     private javax.swing.JButton ballTwo;
     private javax.swing.JLabel colorNameLabel;
     private javax.swing.JLabel dateLabel;
+    private javax.swing.JLabel gameLogo;
     private javax.swing.JPanel innerJPanel;
     private javax.swing.JLabel scoreLabel;
     // End of variables declaration//GEN-END:variables
