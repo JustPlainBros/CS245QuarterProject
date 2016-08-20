@@ -42,6 +42,9 @@ public class ColorGameFrame extends JFrame {
         
         EscapeAction escape = new EscapeAction();
         escape.register(frame.getRootPane());
+        
+        F1Action dialog = new F1Action();
+        dialog.register(frame.getRootPane());
     }
     
 }

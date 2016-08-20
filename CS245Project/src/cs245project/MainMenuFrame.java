@@ -35,6 +35,8 @@ public class MainMenuFrame extends javax.swing.JFrame {
         this.setVisible(true);
         EscapeAction escape = new EscapeAction();
         escape.register(getRootPane());
+        F1Action dialog = new F1Action();
+        dialog.register(getRootPane());
     }
 
     /**
