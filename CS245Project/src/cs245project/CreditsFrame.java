@@ -16,6 +16,7 @@ package cs245project;
 
 public class CreditsFrame extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Credits
      */
@@ -31,7 +32,10 @@ public class CreditsFrame extends javax.swing.JFrame {
         EscapeAction escape = new EscapeAction();
         escape.register(getRootPane());
         
+        
+                
         F1Action dialog = new F1Action();
+        
         dialog.register(getRootPane());
     }
 

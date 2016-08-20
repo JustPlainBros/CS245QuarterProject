@@ -12,6 +12,7 @@
  *********************************************************/
 package cs245project;
 
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
@@ -42,6 +43,7 @@ public class HighScoreFrame extends javax.swing.JFrame {
     //purpose: sets the location of frame to middle of screen and sets
     //the frame visibility on when opened.
     public void setHighScoreAttributes() {
+        
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         EscapeAction escape = new EscapeAction();

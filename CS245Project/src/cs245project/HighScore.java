@@ -13,6 +13,7 @@ package cs245project;
 
 import java.io.Serializable;
 
+
 public class HighScore implements Serializable {
     
     private String name;

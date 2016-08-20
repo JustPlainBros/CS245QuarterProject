@@ -11,6 +11,7 @@
  ************************************************************/
 package cs245project;
 
+
 import javax.swing.JFrame;
 
 public class HangmanFrame {

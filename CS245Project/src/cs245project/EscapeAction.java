@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class EscapeAction extends AbstractAction {
     
     private static final String KEY_STROKE_AND_KEY = "ESCAPE";

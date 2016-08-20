@@ -80,6 +80,7 @@ public class HangmanPanel extends javax.swing.JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
+        
         // Temporary solution, ill come up with some function to 
         // calculate the space correctly for all word lengths
         int firstXCoordinate = 0;
