@@ -18,10 +18,6 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 
-/**
- *
- * @author user
- */
 public class F1Action extends AbstractAction{
     private static final String KEY_STROKE_AND_KEY = "F1";
     private static final KeyStroke F1_KEY_STROKE = KeyStroke.getKeyStroke(KEY_STROKE_AND_KEY);
