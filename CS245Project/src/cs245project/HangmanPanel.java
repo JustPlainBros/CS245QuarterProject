@@ -95,10 +95,10 @@ public class HangmanPanel extends javax.swing.JPanel {
         }
 
         for(int i = 0; i < chosenWord.length(); i++) {
-            g2.drawLine(firstXCoordinate, 290, secondXCoordinate, 290);
+            g2.drawLine(firstXCoordinate, 285, secondXCoordinate, 285);
             
             JLabel label = new JLabel(Character.toString(chosenWord.charAt(i)));
-            label.setBounds((firstXCoordinate + secondXCoordinate) / 2, 265, 20, 20);
+            label.setBounds((firstXCoordinate + secondXCoordinate) / 2, 260, 20, 20);
             label.setVisible(false);
             this.add(label);
             
@@ -291,7 +291,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(skipButton);
-        skipButton.setBounds(530, 70, 75, 29);
+        skipButton.setBounds(460, 70, 100, 20);
 
         aButton.setText("a");
         aButton.setBorder(null);
@@ -303,7 +303,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(aButton);
-        aButton.setBounds(10, 300, 30, 30);
+        aButton.setBounds(10, 290, 30, 30);
 
         bButton.setText("b");
         bButton.setBorder(null);
@@ -315,7 +315,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(bButton);
-        bButton.setBounds(50, 300, 30, 30);
+        bButton.setBounds(50, 290, 30, 30);
 
         cButton.setText("c");
         cButton.setBorder(null);
@@ -327,7 +327,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(cButton);
-        cButton.setBounds(100, 300, 30, 30);
+        cButton.setBounds(100, 290, 30, 30);
 
         dButton.setText("d");
         dButton.setBorder(null);
@@ -339,7 +339,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(dButton);
-        dButton.setBounds(140, 300, 30, 30);
+        dButton.setBounds(140, 290, 30, 30);
 
         eButton.setText("e");
         eButton.setBorder(null);
@@ -351,7 +351,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(eButton);
-        eButton.setBounds(190, 300, 30, 30);
+        eButton.setBounds(190, 290, 30, 30);
 
         gButton.setText("g");
         gButton.setBorder(null);
@@ -363,7 +363,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(gButton);
-        gButton.setBounds(290, 300, 30, 30);
+        gButton.setBounds(290, 290, 30, 30);
 
         fButton.setText("f");
         fButton.setBorder(null);
@@ -375,7 +375,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(fButton);
-        fButton.setBounds(240, 300, 30, 30);
+        fButton.setBounds(240, 290, 30, 30);
 
         hButton.setText("h");
         hButton.setBorder(null);
@@ -387,7 +387,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(hButton);
-        hButton.setBounds(340, 300, 30, 30);
+        hButton.setBounds(340, 290, 30, 30);
 
         jButton.setText("j");
         jButton.setBorder(null);
@@ -399,7 +399,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(jButton);
-        jButton.setBounds(430, 300, 30, 30);
+        jButton.setBounds(430, 290, 30, 30);
 
         iButton.setText("i");
         iButton.setBorder(null);
@@ -411,7 +411,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(iButton);
-        iButton.setBounds(380, 300, 30, 30);
+        iButton.setBounds(380, 290, 30, 30);
 
         kButton.setText("k");
         kButton.setBorder(null);
@@ -423,7 +423,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(kButton);
-        kButton.setBounds(470, 300, 30, 30);
+        kButton.setBounds(470, 290, 30, 30);
 
         lButton.setText("l");
         lButton.setBorder(null);
@@ -435,7 +435,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(lButton);
-        lButton.setBounds(520, 300, 30, 30);
+        lButton.setBounds(520, 290, 30, 30);
 
         mButton.setText("m");
         mButton.setBorder(null);
@@ -447,7 +447,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(mButton);
-        mButton.setBounds(560, 300, 30, 30);
+        mButton.setBounds(560, 290, 30, 30);
 
         nButton.setText("n");
         nButton.setBorder(null);
@@ -459,7 +459,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(nButton);
-        nButton.setBounds(10, 340, 30, 30);
+        nButton.setBounds(10, 330, 30, 30);
 
         pButton.setText("p");
         pButton.setBorder(null);
@@ -471,7 +471,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(pButton);
-        pButton.setBounds(100, 340, 30, 30);
+        pButton.setBounds(100, 330, 30, 30);
 
         oButton.setText("o");
         oButton.setBorder(null);
@@ -483,7 +483,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(oButton);
-        oButton.setBounds(50, 340, 30, 30);
+        oButton.setBounds(50, 330, 30, 30);
 
         qButton.setText("q");
         qButton.setBorder(null);
@@ -495,7 +495,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(qButton);
-        qButton.setBounds(140, 340, 30, 30);
+        qButton.setBounds(140, 330, 30, 30);
 
         rButton.setText("r");
         rButton.setBorder(null);
@@ -507,7 +507,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(rButton);
-        rButton.setBounds(190, 340, 30, 30);
+        rButton.setBounds(190, 330, 30, 30);
 
         sButton.setText("s");
         sButton.setBorder(null);
@@ -519,7 +519,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(sButton);
-        sButton.setBounds(240, 340, 30, 30);
+        sButton.setBounds(240, 330, 30, 30);
 
         tButton.setText("t");
         tButton.setBorder(null);
@@ -531,7 +531,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(tButton);
-        tButton.setBounds(290, 340, 30, 30);
+        tButton.setBounds(290, 330, 30, 30);
 
         uButton.setText("u");
         uButton.setBorder(null);
@@ -543,7 +543,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(uButton);
-        uButton.setBounds(340, 340, 30, 30);
+        uButton.setBounds(340, 330, 30, 30);
 
         vButton.setText("v");
         vButton.setBorder(null);
@@ -555,7 +555,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(vButton);
-        vButton.setBounds(380, 340, 30, 30);
+        vButton.setBounds(380, 330, 30, 30);
 
         wButton.setText("w");
         wButton.setBorder(null);
@@ -567,7 +567,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(wButton);
-        wButton.setBounds(430, 340, 30, 30);
+        wButton.setBounds(430, 330, 30, 30);
 
         xButton.setText("x");
         xButton.setBorder(null);
@@ -579,7 +579,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(xButton);
-        xButton.setBounds(470, 340, 30, 30);
+        xButton.setBounds(470, 330, 30, 30);
 
         yButton.setText("y");
         yButton.setBorder(null);
@@ -591,7 +591,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(yButton);
-        yButton.setBounds(520, 340, 30, 30);
+        yButton.setBounds(520, 330, 30, 30);
 
         zButton.setText("z");
         zButton.setBorder(null);
@@ -603,7 +603,7 @@ public class HangmanPanel extends javax.swing.JPanel {
             }
         });
         add(zButton);
-        zButton.setBounds(560, 340, 30, 30);
+        zButton.setBounds(560, 330, 30, 30);
 
         hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
         add(hangmanLabel);
@@ -622,7 +622,7 @@ public class HangmanPanel extends javax.swing.JPanel {
 
         scoreLabel.setText("jLabel3");
         add(scoreLabel);
-        scoreLabel.setBounds(470, 40, 150, 16);
+        scoreLabel.setBounds(470, 40, 150, 14);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

@@ -147,12 +147,6 @@ public class SudokuPanel extends javax.swing.JPanel {
             for(int j = 0; j < 9; j++) {
                 g2.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0));
                 g2.drawRect(x, y, 30, 30);
-
-                JTextField field = new JTextField();
-                field.setBounds(x + 4, y + 4, 20, 20);
-                this.add(field);
-                labels[i][j] = field;
-
                 x += 30;
             }
             x = 160;
