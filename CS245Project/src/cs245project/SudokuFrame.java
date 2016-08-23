@@ -7,7 +7,7 @@
  *      date last modified: 8/22/16
  * 
  *      purpose: The purpose of this class is to create a new JFrame
- *      object for use with the Sudoku game by creating a new
+ *      object for use with the SudoBku game by creating a new
  *      sudoku panel.
  ************************************************************/
 package cs245project;
@@ -21,7 +21,7 @@ public class SudokuFrame extends JFrame {
     private JFrame frame;
     private int totalScore;
     
-    // constructor: SodokuFrame
+    // constructor: SudokuFrame
     // purpose: create a new JFrame object and assign a title
     public SudokuFrame(String title, int totalScore) {
         frame = new JFrame(title);
