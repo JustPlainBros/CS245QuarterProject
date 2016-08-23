@@ -131,33 +131,60 @@ public class SudokuPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        if(!paintComponentCalled) {
-            Graphics2D g2 = (Graphics2D) g;
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            
-            g2.setColor(Color.WHITE);
-            g2.fillRect(160, 50, 270, 270);
-            
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        
+        g2.setColor(Color.WHITE);
+        g2.fillRect(160, 50, 270, 270);
+        
+        // creates the grid
+        int x = 160;
+        int y = 50;
+
+        g2.setColor(Color.BLACK);
+
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                g2.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0));
+                g2.drawRect(x, y, 30, 30);
+
+                JTextField field = new JTextField();
+                field.setBounds(x + 4, y + 4, 20, 20);
+                this.add(field);
+                labels[i][j] = field;
+
+                x += 30;
+            }
+            x = 160;
+            y += 30;
+        }
+
+        //draws the darker lines
+        g2.setStroke(new BasicStroke(5));
+        g2.drawLine(250, 51, 250, 319);
+        g2.drawLine(340, 51, 340, 319);
+        g2.drawLine(161, 140, 429, 140);
+        g2.drawLine(161, 230, 429, 230);
+
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRect(160, 50, 270, 270);
+        
+        if(!paintComponentCalled) {       
             // creates the grid
-            int x = 160;
-            int y = 50;
-            
-            g2.setColor(Color.BLACK);
-            
+            int xTextField = 160;
+            int yTextField = 50;
+
             for(int i = 0; i < 9; i++) {
                 for(int j = 0; j < 9; j++) {
-                    g2.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0));
-                    g2.drawRect(x, y, 30, 30);
-
                     JTextField field = new JTextField();
-                    field.setBounds(x + 4, y + 4, 20, 20);
+                    field.setBounds(xTextField + 4, yTextField + 4, 20, 20);
                     this.add(field);
                     labels[i][j] = field;
-                    
-                    x += 30;
+
+                    xTextField += 30;
                 }
-                x = 160;
-                y += 30;
+                xTextField = 160;
+                yTextField += 30;
             }
 
             //draws the darker lines
@@ -171,7 +198,7 @@ public class SudokuPanel extends javax.swing.JPanel {
             g2.drawRect(160, 50, 270, 270);
 
             paintComponentCalled = true;
-            
+
             fillGivenSpaces();
         }
     }
