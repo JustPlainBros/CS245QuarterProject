@@ -19,19 +19,27 @@ public class HighScore implements Serializable {
     private String name;
     private int score;
     
+    // constructor: HighScore
+    // purpose: populates name and score with passed in vals
     public HighScore(String name, int score) {
         this.name = name;
         this.score = score;
     }
-    
+
+    //method: getName
+    //purpose: returns stored name value to caller.
     public String getName() {
         return name;
     }
-    
+
+    //method: getScore
+    //purpose: returns stored score value to caller.    
     public int getScore() {
         return score;
     }
 
+    //method: toString
+    //purpose: returns string representation of name and score to caller.
     @Override
     public String toString() {
         return "Name: " + this.name + ", Score: " + this.score;
