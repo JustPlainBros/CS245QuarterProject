@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*************************************************************
+ *      file: F1Action.java
+ *      author: Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ *  
+ *      assignment: Quarter Project, Checkpoint # 3
+ *      date last modified: 8/22/16
+ * 
+ *      purpose: The purpose of this class is to create the dialog for all frames.
+ ************************************************************/
 package cs245project;
 
 import java.awt.Component;
@@ -25,7 +30,8 @@ public class F1Action extends AbstractAction{
     public F1Action() {
         super("F1");
     }
-
+    //method: actionPerformed
+    //purpose: performs the dialog box action if the action occured
     @Override
     public void actionPerformed(ActionEvent e) {
         Component component = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
@@ -48,7 +54,8 @@ public class F1Action extends AbstractAction{
                             + "Summer 2016", "CS 245 Quarter Project", JOptionPane.PLAIN_MESSAGE);
         }
     }
-
+    //method: getF1Action
+   //purpose:gets the key that was entered and checks if it was F1
     private ActionListener getF1Action(JComponent rootPane) {
         InputMap im = rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         if (im == null) return null;
@@ -64,8 +71,8 @@ public class F1Action extends AbstractAction{
         }
         return null;
     }
-
-
+    //method: register
+    //purpose:calls the dialog box
     public void register(JRootPane rootPane) {
         rootPane.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(F1_KEY_STROKE, KEY_STROKE_AND_KEY);
         rootPane.getActionMap().put(KEY_STROKE_AND_KEY, this);

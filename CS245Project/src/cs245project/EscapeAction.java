@@ -1,3 +1,14 @@
+/*************************************************************
+ *      file: EscapeAction.java
+ *      author: Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ *  
+ *      assignment: Quarter Project, Checkpoint # 3
+ *      date last modified: 8/22/16
+ * 
+ *      purpose: The purpose of this class is to create the escape action for all frames.
+ ************************************************************/
+
 package cs245project;
 
 import java.awt.*;
@@ -13,7 +24,8 @@ public class EscapeAction extends AbstractAction {
     public EscapeAction() {
         super("Escape");
     }
-
+    //method:actionPerformed
+    //purpose: program closes when escape is hit
     @Override
     public void actionPerformed(ActionEvent e) {
         Component component = KeyboardFocusManager.getCurrentKeyboardFocusManager().getFocusOwner();
@@ -31,7 +43,8 @@ public class EscapeAction extends AbstractAction {
             System.exit(0);
         }
     }
-
+    //method:getEscapeAction
+    //purpose: checks if key entered was Esc
     private ActionListener getEscapeAction(JComponent rootPane) {
         InputMap im = rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         if (im == null) return null;
@@ -48,11 +61,8 @@ public class EscapeAction extends AbstractAction {
         return null;
     }
 
-    /**
-     *  Register the EscapeAction on the specified JRootPane
-     *
-     *  &param rootPane the JRootPane the EscapeAction is registered with
-     */
+    //method: register
+    //purpose:get the key that was entered
     public void register(JRootPane rootPane) {
         rootPane.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(ESCAPE_KEY_STROKE, KEY_STROKE_AND_KEY);
         rootPane.getActionMap().put(KEY_STROKE_AND_KEY, this);
