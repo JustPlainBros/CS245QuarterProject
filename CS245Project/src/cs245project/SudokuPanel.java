@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*********************************************************
+ *      file: SudokuPanel.java
+ *      author: Michael Muinos, Jose Gutierrez, Erick Rivera
+ *      class: CS 245 - Programming Graphical User Interfaces
+ * 
+ *      assignment: Quarter Project, Checkpoint # 2
+ *      date last modified: 8/22/16
+ * 
+ *      purpose: The purpose of this class is to generate the sudoku
+ *      game in which the user can play a single game.
+ *********************************************************/
 package cs245project;
 
 import java.awt.BasicStroke;
@@ -11,7 +17,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,6 +44,9 @@ public class SudokuPanel extends javax.swing.JPanel {
     
     private boolean paintComponentCalled;
     
+    // constructor
+    // sets the total score from the previous game and creates
+    // new arrays for the sudoku game to be functional
     public SudokuPanel(int totalScore) {
         initComponents();
         this.totalScore = totalScore;
@@ -61,6 +69,8 @@ public class SudokuPanel extends javax.swing.JPanel {
         scoreLabel.setText("Total Score: " + String.valueOf(totalScore + sudokuPoints));
     }
     
+    // method: fillCorrectAnswerFields
+    // purpose: sets all the correct answers inside the 2 dimensional array for the sudoku game
     private void fillCorrectAnswerFields() {
         answers[0][0] = 8; answers[0][1] = 3; answers[0][2] = 5; answers[0][3] = 4; answers[0][4] = 1; answers[0][5] = 6;
         answers[0][6] = 9; answers[0][7] = 2; answers[0][8] = 7; answers[1][0] = 2; answers[1][1] = 9; answers[1][2] = 6;
@@ -78,6 +88,8 @@ public class SudokuPanel extends javax.swing.JPanel {
         answers[8][6] = 8; answers[8][7] = 1; answers[8][8] = 5;
     }
     
+    // method: fillGivenSpaces
+    // purpose: sets the given spaces that were already given for the sudoku game
     private void fillGivenSpaces() {
         labels[0][0].setText(String.valueOf(8));
         labels[0][3].setText(String.valueOf(4));
@@ -127,6 +139,8 @@ public class SudokuPanel extends javax.swing.JPanel {
         new javax.swing.Timer(1000, date).start();
     }
 
+    // method: paintComponent
+    // purpose: creates the grid for the sudoku game and draws the text fields inside
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -197,6 +211,8 @@ public class SudokuPanel extends javax.swing.JPanel {
         }
     }
     
+    // method: isNumeric
+    // purpose: determines if the string is only numeric
     private boolean isNumeric(String str) {
         for (char c : str.toCharArray()) {
             if (!Character.isDigit(c)) return false;
@@ -204,6 +220,9 @@ public class SudokuPanel extends javax.swing.JPanel {
         return true;
     }
     
+    // method: containsIncorrectPair
+    // purpose: determines if the row and column index is a pair that has already
+    // been marked as incorrect
     private boolean containsIncorrectPair(int row, int col) {
         for(int i = 0; i < incorrectAnswers.size(); i++) {
             if(incorrectAnswers.get(i).getRowIndex() == row 
@@ -289,6 +308,8 @@ public class SudokuPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // method: endButtonActionPerformed
+    // purpose: creates a new frame and disposes of the current sudoku game
     private void endButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endButtonActionPerformed
         ResultFrame frame = new ResultFrame(totalScore);
         frame.setResultFrameAttributes();
@@ -296,6 +317,9 @@ public class SudokuPanel extends javax.swing.JPanel {
         jframe.dispose();
     }//GEN-LAST:event_endButtonActionPerformed
 
+    // method: submitButtonActionPerformed
+    // purpose: checks if the specified user entries is a correct answer. if not,
+    // it will decrement the user points and the user can try again
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         boolean incorrectInput = false;
         boolean allCorrectAnswers = true;
