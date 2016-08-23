@@ -179,12 +179,12 @@ public class ColorGamePanel extends javax.swing.JPanel {
 
         scoreLabel.setText("jLabel3");
         add(scoreLabel);
-        scoreLabel.setBounds(20, 50, 150, 16);
+        scoreLabel.setBounds(20, 50, 150, 14);
 
         colorNameLabel.setBackground(new java.awt.Color(255, 255, 255));
         colorNameLabel.setText("jLabel1");
         add(colorNameLabel);
-        colorNameLabel.setBounds(250, 50, 109, 16);
+        colorNameLabel.setBounds(250, 50, 109, 14);
 
         ballOne.setBorderPainted(false);
         ballOne.setContentAreaFilled(false);
@@ -196,6 +196,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         });
 
         ballTwo.setBorderPainted(false);
+        ballTwo.setContentAreaFilled(false);
         ballTwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballTwoMouseClicked(evt);
@@ -203,6 +204,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         });
 
         ballThree.setBorderPainted(false);
+        ballThree.setContentAreaFilled(false);
         ballThree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballThreeMouseClicked(evt);
@@ -210,6 +212,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         });
 
         ballFour.setBorderPainted(false);
+        ballFour.setContentAreaFilled(false);
         ballFour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ballFourMouseClicked(evt);
@@ -217,6 +220,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         });
 
         ballFive.setBorderPainted(false);
+        ballFive.setContentAreaFilled(false);
         ballFive.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/yellowballhover.png"))); // NOI18N
         ballFive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -231,7 +235,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
             .addGroup(innerJPanelLayout.createSequentialGroup()
                 .addGap(111, 111, 111)
                 .addComponent(ballFour)
-                .addGap(222, 222, 222)
+                .addGap(188, 188, 188)
                 .addComponent(ballFive)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(innerJPanelLayout.createSequentialGroup()
@@ -239,7 +243,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
                 .addComponent(ballOne)
                 .addGap(56, 56, 56)
                 .addComponent(ballTwo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
                 .addComponent(ballThree)
                 .addGap(55, 55, 55))
         );
@@ -268,7 +272,7 @@ public class ColorGamePanel extends javax.swing.JPanel {
         );
 
         add(innerJPanel);
-        innerJPanel.setBounds(6, 76, 585, 334);
+        innerJPanel.setBounds(6, 76, 585, 294);
 
         gameLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/PoképickLogo.png"))); // NOI18N
         add(gameLogo);
