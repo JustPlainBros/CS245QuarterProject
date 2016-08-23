@@ -1,5 +1,5 @@
 /*************************************************************
- *      file: HangmanResultFrame.java
+ *      file: SudokuFrame.java
  *      author: Michael Muinos
  *      class: CS 245 - Programming Graphical User Interfaces
  *  
@@ -7,8 +7,8 @@
  *      date last modified: 8/22/16
  * 
  *      purpose: The purpose of this class is to create a new JFrame
- *      object for use with the Sodoku game by creating a new
- *      sodoku panel.
+ *      object for use with the Sudoku game by creating a new
+ *      sudoku panel.
  ************************************************************/
 package cs245project;
 
