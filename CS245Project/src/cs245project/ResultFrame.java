@@ -95,6 +95,7 @@ public class ResultFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 400));
 
         hangmanLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/HangmanLogo1.png"))); // NOI18N
         hangmanLabel.setText("Hangman");
@@ -148,7 +149,7 @@ public class ResultFrame extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)
                                 .addComponent(scoreLabel))
                             .addComponent(jLabel2))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +173,7 @@ public class ResultFrame extends javax.swing.JFrame {
                 .addComponent(alertMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(endButton)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
