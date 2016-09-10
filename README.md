@@ -1,2 +1,2 @@
 # CS245Proj
-Ayyy lmao
+Hangman, Sudoku, and PokePick!
